@@ -8,9 +8,8 @@ export const Theme = {
   },
   space: [0, 2, 4, 8, 16, 32, 64, 128, 256],
   fonts: {
-    body: 'system-ui, sans-serif',
-    heading: 'system-ui, sans-serif',
-    monospace: 'Menlo, monospace',
+    body: 'Montserrat, Montserrat+Alternates',
+    heading: 'Montserrat',
   },
   fontSizes: {
     xs: '12px',
@@ -20,12 +19,9 @@ export const Theme = {
     xl: '64px',
   },
   fontWeights: {
-    normal: 400,
-    bold: 700,
-  },
-  lineHeights: {
-    body: 1.5,
-    heading: 1.125,
+      normal: 400,
+      medium: 500,
+        bold: 600,
   },
   borders: {
     none: 'none',
