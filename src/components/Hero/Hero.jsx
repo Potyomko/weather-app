@@ -1,6 +1,6 @@
 import ReactDOM from 'react-dom';
 import { Formik, Field, Form } from 'formik';
-import { HeroSection } from './Hero.styled';
+import { HeroSection, HeroH1 } from './Hero.styled';
 import { BiSearch } from "react-icons/bi";
 
 import './styled.css'
@@ -15,9 +15,9 @@ export const Hero = () => {
   };
 
   return (
-    <section className="hero">
-      <div>
-        <h1>Weather dashboard</h1>
+    <HeroSection>
+     
+        <HeroH1>Weather dashboard</HeroH1>
         <p>Create your personal list of favorite cities and always be aware of the weather.</p>
            <p>October 2023 Friday, 13th</p>
         <Formik
@@ -42,7 +42,6 @@ export const Hero = () => {
           )}
         </Formik>
         <HeroAPI city={cityName} />
-      </div>
-    </section>
-  );
-          }
+    </HeroSection>
+  )
+}
