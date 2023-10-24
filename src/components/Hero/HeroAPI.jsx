@@ -9,7 +9,7 @@ export const HeroAPI = ({ city }) => {
         .then((response) => response.json())
         .then((data) => {
           setWeatherData(data);
-          window.localStorage.setItem('weatherData', JSON.stringify(data));
+          window.localStorage.setItem(city, JSON.stringify(data));
         })
         .catch((error) => {
           console.error('Помилка при отриманні даних погоди:', error);
