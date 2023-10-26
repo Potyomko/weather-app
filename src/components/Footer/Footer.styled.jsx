@@ -5,6 +5,12 @@ export const FooterSection = styled.section`
     background-color: ${Theme.colors.orange};
     height: 70px;
     padding: 30px;
+    @media screen and (min-width: 768px){
+        background-color: red;
+    }
+    @media screen and (min-width: 1100px){
+        background-color: white;
+    }
 `
 export const FooterAdressDiv = styled.div`
     position: fixed;

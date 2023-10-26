@@ -1,4 +1,5 @@
 import { FooterAdress, FooterAdressDiv, FooterAdressTitle, FooterContactUsDiv, FooterContactUsTitle, FooterSection } from "./Footer.styled";
+import Facebook from '../../img/facebook.svg';
 
 export const Footer = () => {
     return (
@@ -11,6 +12,7 @@ export const Footer = () => {
             </FooterAdressDiv>
             <FooterContactUsDiv>
                 <FooterContactUsTitle>Contact us</FooterContactUsTitle>
+                <img src={Facebook} alt="" />
             </FooterContactUsDiv>
         </FooterSection>
     )
