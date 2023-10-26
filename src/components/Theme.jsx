@@ -8,7 +8,7 @@ export const Theme = {
   },
   space: [0, 2, 4, 8, 16, 32, 64, 128, 256],
   fonts: {
-    body: 'Montserrat, Montserrat+Alternates',
+    body: 'Montserrat Alternates',
     heading: 'Montserrat',
   },
   fontSizes: {
