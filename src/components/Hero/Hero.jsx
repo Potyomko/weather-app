@@ -1,11 +1,13 @@
-import ReactDOM from 'react-dom';
+// import ReactDOM from 'react-dom';
 import { Formik, Field, Form } from 'formik';
-import { HeroSection } from './Hero.styled';
+// import { HeroSection } from './Hero.styled';
 import { BiSearch } from "react-icons/bi";
 
 import './styled.css'
 import { HeroAPI } from './HeroAPI';
+import { WeekForecastLocation } from 'components/WeekForecast/WeekForecastAPI';
 import { useState } from 'react';
+import { WeekForecastApi } from 'components/WeekForecast/WeekForecastAPI';
 
 export const Hero = () => {
   const [cityName, setCityName] = useState(''); 
@@ -42,6 +44,8 @@ export const Hero = () => {
           )}
         </Formik>
         <HeroAPI city={cityName} />
+        {/* <WeekForecastLocation city={cityName}/> */}
+        <WeekForecastApi city={cityName}/>
       </div>
     </section>
   );
