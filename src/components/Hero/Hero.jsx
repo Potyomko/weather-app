@@ -6,6 +6,8 @@ import { BiSearch } from "react-icons/bi";
 import './styled.css'
 import { HeroAPI } from './HeroAPI';
 import { useState } from 'react';
+import { WeekForecastLocationAPI } from 'components/WeatherForecastForWeek/WeatherForecastLocationAPI';
+import { WeekForecastAPI } from 'components/WeatherForecastForWeek/WeatherForecastLocationAPI';
 
 
 export const Hero = () => {
@@ -61,6 +63,8 @@ const currentMonth = months[currentDate.getMonth()];
         )}
       </Formik>
       <HeroAPI city={cityName} />
+      <WeekForecastLocationAPI city={cityName}/>
+      {/* <WeekForecastAPI city={cityName}/> */}
     </HeroSection>
   );
 }
