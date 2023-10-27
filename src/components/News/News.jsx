@@ -7,7 +7,7 @@ export const News = () => {
     console.log(news);
 
     useEffect(() => {
-        fetch('https://newsapi.org/v2/top-headlines?q=dog&ln=en&apiKey=f58eaf87dd6248efaa19cf893b7b86fa') 
+        fetch(`https://newsapi.org/v2/everything?country=us&language=en&q=tesla&from=2023-09-27&sortBy=publishedAt&apiKey=f58eaf87dd6248efaa19cf893b7b86fa`) 
         .then(res => res.json())
         .then(result => setNews(result))
     }, [] )
