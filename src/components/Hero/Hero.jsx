@@ -12,10 +12,10 @@ export const Hero = () => {
   const [cityName, setCityName] = useState('');
   const [currentDay, setCurrentDay] = useState('');
 
-  const handleSubmit = (values) => {
+  const handleSubmit = (values, { resetForm }) => {
     setCityName(values.cityName);
+    resetForm();
   };
-
   
   const currentDate = new Date();
 

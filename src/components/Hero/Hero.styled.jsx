@@ -21,7 +21,11 @@
  `
 
  export const HeroH1 = styled.h1`
- font: ${props=>props.theme.fonts.heading}
- 
- 
+
+ color: ${props=> props.theme.colors.white};
+ font-family: ${props=>props.theme.fonts.body};
+weight: 600';
+size: 40px; 
+font-size: 48.76px;
+
  `
