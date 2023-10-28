@@ -1,6 +1,6 @@
 import ReactDOM from 'react-dom';
 import { Formik, Field, Form } from 'formik';
-import { HeroSection, HeroH1 } from './Hero.styled';
+import { HeroSection, HeroH1, HeroText, HeroData, HeroLiH1, HeroSubmit  } from './Hero.styled';
 import { BiSearch } from "react-icons/bi";
 
 import './styled.css'
@@ -14,10 +14,10 @@ export const Hero = () => {
   const [cityName, setCityName] = useState('');
   const [currentDay, setCurrentDay] = useState('');
 
-  const handleSubmit = (values) => {
+  const handleSubmit = (values, { resetForm }) => {
     setCityName(values.cityName);
+    resetForm();
   };
-
   
   const currentDate = new Date();
 
@@ -38,9 +38,17 @@ const months = [
 const currentMonth = months[currentDate.getMonth()];
   return (
     <HeroSection>
+
+      <ul>
+      <HeroLiH1>
       <HeroH1>Weather dashboard</HeroH1>
-      <p>Create your personal list of favorite cities and always be aware of the weather.</p>
-      <p>{currentMonth} {year} {currentDayOfWeek}, {day}th</p>
+
+      </HeroLiH1>
+      </ul>
+     
+    
+      <HeroText>Create your personal list of favorite cities and always be aware of the weather.</HeroText>
+      <HeroData>{currentMonth} {year} <br></br> {currentDayOfWeek}, {day}th</HeroData>
       <Formik
         initialValues={{
           cityName: '',
@@ -48,7 +56,7 @@ const currentMonth = months[currentDate.getMonth()];
         onSubmit={handleSubmit}
       >
         {({ values, handleChange, handleSubmit }) => (
-          <Form>
+          <Form className='form'>
             <label htmlFor="cityName"></label>
             <Field
               id="cityName"
@@ -56,9 +64,9 @@ const currentMonth = months[currentDate.getMonth()];
               onChange={handleChange}
               value={values.cityName}
             />
-            <button type="submit" onClick={handleSubmit}>
-              <BiSearch />
-            </button>
+            <HeroSubmit type="submit" onClick={handleSubmit}>
+              <BiSearch  />
+            </HeroSubmit>
           </Form>
         )}
       </Formik>
