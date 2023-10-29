@@ -6,7 +6,7 @@ import {Footer} from './Footer/Footer';
 export const App = () => {
   return (
     <div>
-      <Hero/>
+      <Hero />
       <Footer/>
       <GlobalStyle/>
     </div>

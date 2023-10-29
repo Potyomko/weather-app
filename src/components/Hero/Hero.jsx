@@ -49,7 +49,7 @@ const currentMonth = months[currentDate.getMonth()];
     
       <HeroText>Create your personal list of favorite cities and always be aware of the weather.</HeroText>
       <HeroData>{currentMonth} {year} <br></br> {currentDayOfWeek}, {day}th</HeroData>
-      <Formik
+      {/* <Formik
         initialValues={{
           cityName: '',
         }}
@@ -69,7 +69,7 @@ const currentMonth = months[currentDate.getMonth()];
             </HeroSubmit>
           </Form>
         )}
-      </Formik>
+      </Formik> */}
       <HeroAPI city={cityName} />
       <WeekForecastLocationAPI city={cityName}/>
       {/* <WeekForecastAPI city={cityName}/> */}
