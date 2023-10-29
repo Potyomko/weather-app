@@ -39,12 +39,11 @@ const currentMonth = months[currentDate.getMonth()];
   return (
     <HeroSection>
 
-      <ul>
       <HeroLiH1>
       <HeroH1>Weather dashboard</HeroH1>
 
       </HeroLiH1>
-      </ul>
+    
      
     
     

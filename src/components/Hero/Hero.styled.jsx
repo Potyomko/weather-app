@@ -36,19 +36,17 @@ export const HeroH1 = styled.h1`
  
   @media screen and (min-width: ${desktop}){
     font-size: 48.76px;
-    size: 40px;
 }
-  
-  @media screen and (min-width: ${tablet}){
+
+@media screen and (min-width: ${tablet}){
     font-size: 24.76px;
-    size: 20px;
 }
-  
- 
+
 @media screen and (min-width: ${mobile}){
-  font-size: 17.76px;
-  size: 14px;
+    font-size: 17.76px;
 }
+
+
 
 `;
 
