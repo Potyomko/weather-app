@@ -92,21 +92,31 @@ font-weight: 500;
 export const HeroData = styled.p`
 color: ${props => props.theme.colors.white};
 font-family: ${props => props.theme.fonts.body};
-Size: 24px;
-line-height: 29.26px;
+
 margin-left: 880px;
 margin-top: -90px;
+
+
+@media screen and (min-width: 1200px){
+ 
+  size: 24px;
+  line-height: 29.26px;
+}
+
+@media screen and (max-width:768px ){
+  size: 14px;
+  line-height: 17px;
+ 
+}
+
+@media screen and (max-width: 480px){
+  font-size: 10px;
+  line-height: 12px;
+}
 `
 
-export const Field = styled.input`
-width: 625px;
-height: 42px;
- background: #D9D9D9;
-
-border-radius: 10px;
 
 
-`
 
 export const HeroSubmit = styled.button`
 
