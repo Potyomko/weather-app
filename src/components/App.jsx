@@ -1,4 +1,5 @@
 import { GlobalStyle } from "../GlobalStyle";
+import { News } from "./News/News";
 import { Hero } from "./Hero/Hero";
 import { HeroAPI } from "./Hero/HeroAPI";
 import {Footer} from './Footer/Footer';
@@ -9,6 +10,7 @@ export const App = () => {
     <div>
       <Hero/>
       <WeatherForecastForWeek/>
+      <News/>
       <Footer/>
       <GlobalStyle/>
     </div>
