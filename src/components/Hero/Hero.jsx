@@ -1,4 +1,3 @@
-import ReactDOM from 'react-dom';
 import { Formik, Field, Form } from 'formik';
 import { HeroSection, HeroH1, HeroText, HeroData, HeroLiH1, HeroSubmit  } from './Hero.styled';
 import { BiSearch } from "react-icons/bi";
@@ -7,7 +6,6 @@ import './styled.css'
 import { HeroAPI } from './HeroAPI';
 import { useState } from 'react';
 import { WeekForecastLocationAPI } from 'components/WeatherForecastForWeek/WeatherForecastLocationAPI';
-import { WeekForecastAPI } from 'components/WeatherForecastForWeek/WeatherForecastLocationAPI';
 
 
 export const Hero = () => {
@@ -72,7 +70,6 @@ const currentMonth = months[currentDate.getMonth()];
       </Formik>
       <HeroAPI city={cityName} />
       <WeekForecastLocationAPI city={cityName}/>
-      {/* <WeekForecastAPI city={cityName}/> */}
     </HeroSection>
   );
 }
