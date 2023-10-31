@@ -52,9 +52,9 @@ export const MoreInfoList = ({city}) => {
     
     })}
   </ul>
-    // {hourlyWeather && <ul>{hourlyWeather.map((hour) => {
+    {/* // {hourlyWeather && <ul>{hourlyWeather.map((hour) => {
     //   return <p key={hour.dt}>{hour.dt}</p>
-    // })}</ul>}
+    // })}</ul>} */}
     
     
     </>
