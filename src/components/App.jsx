@@ -9,7 +9,7 @@ export const App = () => {
   return (
     <div>
       <Hero/>
-      <WeatherForecastForWeek/>
+      {/* <WeatherForecastForWeek/> */}
       <News/>
       <Footer/>
       <GlobalStyle/>
