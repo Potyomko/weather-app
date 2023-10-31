@@ -1,5 +1,5 @@
 import { Formik, Field, Form } from 'formik';
-import { HeroSection, HeroH1, HeroText, HeroData, HeroLiH1, HeroSubmit  } from './Hero.styled';
+import { HeroSection, HeroH1, HeroText, HeroData, HeroLiH1, HeroSubmit, HeroSpan  } from './Hero.styled';
 import { BiSearch } from "react-icons/bi";
 
 import './styled.css'
@@ -37,15 +37,17 @@ const currentMonth = months[currentDate.getMonth()];
   return (
     <HeroSection>
 
-      <ul>
       <HeroLiH1>
       <HeroH1>Weather dashboard</HeroH1>
 
       </HeroLiH1>
-      </ul>
+    
      
     
+    
+      
       <HeroText>Create your personal list of favorite cities and always be aware of the weather.</HeroText>
+      <HeroSpan></HeroSpan>
       <HeroData>{currentMonth} {year} <br></br> {currentDayOfWeek}, {day}th</HeroData>
       <Formik
         initialValues={{
@@ -63,7 +65,7 @@ const currentMonth = months[currentDate.getMonth()];
               value={values.cityName}
             />
             <HeroSubmit type="submit" onClick={handleSubmit}>
-              <BiSearch  />
+              <BiSearch size={25}  />
             </HeroSubmit>
           </Form>
         )}
