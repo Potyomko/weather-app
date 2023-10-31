@@ -1,48 +1,78 @@
 import ReactDOM from 'react-dom';
 import { Formik, Field, Form } from 'formik';
-import { HeroSection } from './Hero.styled';
+import { HeroSection, HeroH1, HeroText, HeroData, HeroLiH1, HeroSubmit  } from './Hero.styled';
 import { BiSearch } from "react-icons/bi";
 
 import './styled.css'
 import { HeroAPI } from './HeroAPI';
 import { useState } from 'react';
+import { WeekForecastLocationAPI } from 'components/WeatherForecastForWeek/WeatherForecastLocationAPI';
+import { WeekForecastAPI } from 'components/WeatherForecastForWeek/WeatherForecastLocationAPI';
+
 
 export const Hero = () => {
-  const [cityName, setCityName] = useState(''); 
+  const [cityName, setCityName] = useState('');
+  const [currentDay, setCurrentDay] = useState('');
 
-  const handleSubmit = (values) => {
-    setCityName(values.cityName) 
+  const handleSubmit = (values, { resetForm }) => {
+    setCityName(values.cityName);
+    resetForm();
   };
+  
+  const currentDate = new Date();
 
+  
+  const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+  const currentDayOfWeek = daysOfWeek[currentDate.getDay()];
+  const day = currentDate.getDate();
+const year = currentDate.getFullYear()
+
+
+
+const months = [
+  "January", "February", "March", "April",
+  "May", "June", "July", "August",
+  "September", "October", "November", "December"
+];
+
+const currentMonth = months[currentDate.getMonth()];
   return (
-    <section className="hero">
-      <div>
-        <h1>Weather dashboard</h1>
-        <p>Create your personal list of favorite cities and always be aware of the weather.</p>
-           <p>October 2023 Friday, 13th</p>
-        <Formik
-          initialValues={{
-            cityName: '',
-          }}
-          onSubmit={handleSubmit}
-        >
-          {({ values, handleChange, handleSubmit }) => (
-            <Form>
-              <label htmlFor="cityName"></label>
-              <Field
-                id="cityName"
-                name="cityName"
-                onChange={handleChange}
-                value={values.cityName}
-              />
-              <button type="submit" onClick={handleSubmit}>
-                <BiSearch />
-              </button>
-            </Form>
-          )}
-        </Formik>
-        <HeroAPI city={cityName} />
-      </div>
-    </section>
+    <HeroSection>
+
+      <ul>
+      <HeroLiH1>
+      <HeroH1>Weather dashboard</HeroH1>
+
+      </HeroLiH1>
+      </ul>
+     
+    
+      <HeroText>Create your personal list of favorite cities and always be aware of the weather.</HeroText>
+      <HeroData>{currentMonth} {year} <br></br> {currentDayOfWeek}, {day}th</HeroData>
+      {/* <Formik
+        initialValues={{
+          cityName: '',
+        }}
+        onSubmit={handleSubmit}
+      >
+        {({ values, handleChange, handleSubmit }) => (
+          <Form className='form'>
+            <label htmlFor="cityName"></label>
+            <Field
+              id="cityName"
+              name="cityName"
+              onChange={handleChange}
+              value={values.cityName}
+            />
+            <HeroSubmit type="submit" onClick={handleSubmit}>
+              <BiSearch  />
+            </HeroSubmit>
+          </Form>
+        )}
+      </Formik> */}
+      <HeroAPI city={cityName} />
+      <WeekForecastLocationAPI city={cityName}/>
+      {/* <WeekForecastAPI city={cityName}/> */}
+    </HeroSection>
   );
-          }
+}
