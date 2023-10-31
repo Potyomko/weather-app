@@ -9,10 +9,10 @@ export const App = () => {
   return (
     <div>
       <Hero/>
-      <WeatherForecastForWeek/>
       <News/>
       <Footer/>
       <GlobalStyle/>
     </div>
   );
 };
+
