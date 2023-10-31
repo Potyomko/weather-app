@@ -34,15 +34,15 @@ export const HeroH1 = styled.h1`
   font-family: ${props => props.theme.fonts.body};
 
  
-  @media screen and (min-width: ${desktop}){
+  @media screen and (min-width: 1200px){
     font-size: 48.76px;
 }
 
-@media screen and (min-width: ${tablet}){
+@media screen and (max-width:768px ){
     font-size: 24.76px;
 }
 
-@media screen and (min-width: ${mobile}){
+@media screen and (max-width: 480px){
     font-size: 17.76px;
 }
 
@@ -63,12 +63,29 @@ margin-left: 530px;
 export const HeroText = styled.p`
   color: ${props => props.theme.colors.white};
   font-family: ${props => props.theme.fonts.body};
-  font-weight: 500;
-  font-size: 24px;
-  line-height: 29px;
-width: 340px;
+ 
+
 margin-left: 450px;
 margin-top: 100px;
+
+font-weight: 500;
+
+@media screen and (min-width: 1200px){
+  width: 340px;
+  font-size: 24px;
+  line-height: 29px;
+}
+
+@media screen and (max-width:768px ){
+  font-size: 14px;
+  line-height: 17px;
+  width: 1000px;
+}
+
+@media screen and (max-width: 480px){
+  font-size: 10px;
+  line-height: 12px;
+}
 `;
 
 
