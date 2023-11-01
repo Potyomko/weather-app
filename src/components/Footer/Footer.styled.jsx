@@ -11,7 +11,6 @@ export const FooterSection = styled.section`
     }
 `
 export const FooterAdressDiv = styled.div`
-    position: fixed;
     left: 343px;
     padding: 40px 0px 64px 0px;
     @media screen and (min-width: 320px){
@@ -61,7 +60,6 @@ export const FooterAdress = styled.p`
     }
 `
 export const FooterContactUsDiv = styled.div`
-    position: fixed;
     left: 538px;
     padding: 40px 0px 69px 0px;
     @media screen and (min-width: 320px){

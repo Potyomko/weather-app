@@ -8,7 +8,8 @@ import { WeatherForecastForWeek } from "./WeatherForecastForWeek/WeatherForecast
 export const App = () => {
   return (
     <div>
-      <Hero/>
+      <Hero />
+      <WeatherForecastForWeek/>
       <News/>
       <Footer/>
       <GlobalStyle/>
