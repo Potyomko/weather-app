@@ -4,10 +4,12 @@ import { Hero } from "./Hero/Hero";
 import { HeroAPI } from "./Hero/HeroAPI";
 import {Footer} from './Footer/Footer';
 import { WeatherForecastForWeek } from "./WeatherForecastForWeek/WeatherForecastForWeek";
+import { Header } from "./Header/Header";
 
 export const App = () => {
   return (
     <div>
+      <Header/>
       <Hero/>
       <News/>
       <Footer/>
