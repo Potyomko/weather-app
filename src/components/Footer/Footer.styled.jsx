@@ -21,7 +21,7 @@ export const FooterAdressDiv = styled.div`
         padding: 56px 0px 0px 108px;
     }
     @media screen and (min-width: 1200px){
-        padding: 60px 0px 0px 160px;
+        adding: 41px 0px 0px 0px;
     }
     
 `
@@ -70,13 +70,13 @@ export const FooterContactUsDiv = styled.div`
         align-items: center;
     }
     @media screen and (min-width: 768px){
-        top: 1px;
         display: flex;
         align-items: flex-start;
         padding: 755px 0px 0px 409px;
     }
     @media screen and (min-width: 1200px){
         padding: 755px 0px 0px 475px;
+        padding: 36px 0px 0px 140px;
     }
 `
 export const FooterContactUsTitle = styled.p`
