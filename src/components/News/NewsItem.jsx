@@ -1,7 +1,10 @@
-export const NewsItem = () => {
+export const NewsItem = (img, description) => {
     return (
         <>
-        li
+            <li>
+                <img src={img} alt="news" />
+                <p>{description}</p>
+            </li>
         </>
     )
 }
