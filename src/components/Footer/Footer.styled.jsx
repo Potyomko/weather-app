@@ -8,21 +8,19 @@ export const FooterSection = styled.section`
     padding: auto;
     @media screen and (min-width: 320px){
         display: flex;
+        flex-wrap: wrap;
     }
 `
 export const FooterAdressDiv = styled.div`
-    position: fixed;
-    left: 343px;
-    padding: 40px 0px 64px 0px;
+   
     @media screen and (min-width: 320px){
-        left: 180px;
-        top: 698px;
+        padding: 17px 0px 0px 53px;
     }
     @media screen and (min-width: 768px){
-        padding: 56px 0px 0px 108px;
+        padding: 30px 0px 0px 0px;
     }
     @media screen and (min-width: 1200px){
-        padding: 60px 0px 0px 160px;
+        padding: 41px 0px 0px 0px;
     }
     
 `
@@ -61,24 +59,20 @@ export const FooterAdress = styled.p`
     }
 `
 export const FooterContactUsDiv = styled.div`
-    position: fixed;
-    left: 538px;
     padding: 40px 0px 69px 0px;
     @media screen and (min-width: 320px){
-        left: 73px;
-        top: 796px;
         display: flex;
         flex-direction: column;
         align-items: center;
+        padding: 29px 0px 0px 59px;
     }
     @media screen and (min-width: 768px){
-        top: 1px;
         display: flex;
         align-items: flex-start;
-        padding: 755px 0px 0px 409px;
+        padding: 30px 0px 0px 79px;
     }
     @media screen and (min-width: 1200px){
-        padding: 755px 0px 0px 475px;
+        padding: 41px 0px 0px 132px;
     }
 `
 export const FooterContactUsTitle = styled.p`
@@ -144,7 +138,7 @@ export const FooterIconLogoDiv = styled.div`
     padding: 40px 150px 77px 103px;
     width: 90px;
     @media screen and (min-width: 320px){
-        padding: 19px 0px 145px 15px;
+        padding: 20px 0px 0px 21px;
         width: 50px;
     }
     @media screen and (min-width: 768px){

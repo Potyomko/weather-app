@@ -20,7 +20,7 @@ useEffect(() => {
             console.error('Помилка при отриманні даних погоди:', error);
           });
 
-        fetch(`https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lon}&exclude=daily&appid=40207e285e43c5b8e49ba7f2599cdd4b`)
+        fetch(`https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lon}&appid=40207e285e43c5b8e49ba7f2599cdd4b`)
         .then((response) => response.json())  
         .then(data => window.localStorage.setItem('Weather', JSON.stringify(data)))
 

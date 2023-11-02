@@ -1,12 +1,22 @@
 import styled from "styled-components";
 import heroBackground from './HeroBackround.jpg';
-
+const mobile =  480;
+const tablet = 768;
+const desktop = 1200;
 export const HeroSection = styled.section`
   background-color: #2f303a;
 
   padding-bottom: 100px;
   padding-top: 100px;
-  height: 500px;
+
+  @media screen and (min-width: ${desktop}){
+    height: 500px;
+}
+  
+  @media screen and (min-width: ${tablet}){
+    height: 345px;
+}
+  
 
   background-image: linear-gradient(
     to right,
@@ -22,9 +32,21 @@ export const HeroSection = styled.section`
 export const HeroH1 = styled.h1`
   color: ${props => props.theme.colors.white};
   font-family: ${props => props.theme.fonts.body};
-  font-weight: 600;
-  font-size: 48.76px;
-  
+
+ 
+  @media screen and (min-width: 1200px){
+    font-size: 48.76px;
+}
+
+@media screen and (max-width:768px ){
+    font-size: 24.76px;
+}
+
+@media screen and (max-width: 480px){
+    font-size: 17.76px;
+}
+
+
 
 `;
 
@@ -41,33 +63,60 @@ margin-left: 530px;
 export const HeroText = styled.p`
   color: ${props => props.theme.colors.white};
   font-family: ${props => props.theme.fonts.body};
-  font-weight: 500;
-  font-size: 24px;
-  line-height: 29px;
-width: 330px;
+ 
+
 margin-left: 450px;
 margin-top: 100px;
+
+font-weight: 500;
+
+@media screen and (min-width: 1200px){
+  width: 340px;
+  font-size: 24px;
+  line-height: 29px;
+}
+
+@media screen and (max-width:768px ){
+  font-size: 14px;
+  line-height: 17px;
+  width: 1000px;
+}
+
+@media screen and (max-width: 480px){
+  font-size: 10px;
+  line-height: 12px;
+}
 `;
 
 
 export const HeroData = styled.p`
 color: ${props => props.theme.colors.white};
 font-family: ${props => props.theme.fonts.body};
-Size: 24px;
-line-height: 29.26px;
-margin-left: 830px;
-margin-top: -80px;
+
+margin-left: 880px;
+margin-top: -90px;
+
+
+@media screen and (min-width: 1200px){
+ 
+  size: 24px;
+  line-height: 29.26px;
+}
+
+@media screen and (max-width:768px ){
+  size: 14px;
+  line-height: 17px;
+ 
+}
+
+@media screen and (max-width: 480px){
+  font-size: 10px;
+  line-height: 12px;
+}
 `
 
-export const Field = styled.input`
-width: 625px;
-height: 42px;
- background: #D9D9D9;
-
-border-radius: 10px;
 
 
-`
 
 export const HeroSubmit = styled.button`
 
@@ -79,6 +128,14 @@ export const HeroSubmit = styled.button`
   border: 0 0 0 2px; 
 
 `;
+export const HeroSpan = styled.span`
+  width: 144px;
+  height: 3px;
+  background-color: ${props => props.theme.colors.white};
+  display: inline-block;
+  transform: rotate(-90deg);
+  position: absolute;
 
-
- 
+  left: 780px;
+  margin-top: -30px;
+`;
