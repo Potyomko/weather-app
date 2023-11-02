@@ -1,7 +1,7 @@
 import { Button } from "./Button.styled";
 
-export function MainButton(props){
+export function MainButton(props, click){
     return (
-        <Button>{ props.children }</Button>
+        <Button onClick={props.onClick}>{props.children}</Button> 
     )
 }
