@@ -67,7 +67,6 @@ export const FooterContactUsDiv = styled.div`
         padding: 29px 0px 0px 59px;
     }
     @media screen and (min-width: 768px){
-        top: 1px;
         display: flex;
         align-items: flex-start;
         padding: 30px 0px 0px 79px;
