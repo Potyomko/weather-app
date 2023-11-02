@@ -12,7 +12,7 @@ export const App = () => {
     <div>
       <Header />
       <Hero/>
-      {/* <WeatherForecastForWeek /> */}
+      <WeatherForecastForWeek />
       <News/>
       <Footer/>
       <GlobalStyle/>
