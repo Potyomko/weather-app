@@ -94,7 +94,7 @@ margin-left: 250px;
 `
 export const ModalForm = styled.form`
   margin-left: 80px;
-  margin-top: 50px;
+  margin-top: 40px;
 
 
   `
@@ -130,4 +130,23 @@ export const ModalPassword = styled.input`
   display: block; 
   padding-left: 15px;
 `;
+
+export const Submit = styled.div`
+margin-left: 250px;
+margin-top: 50px;
+
+
+
+`
+export const LinkModal = styled.p`
+
+margin-left: 160px;
+margin-top: 20px;
+`
+
+export const LinkModalSecond = styled.p`
+
+margin-left: 160px;
+margin-top: 80px;
+`
 

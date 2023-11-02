@@ -4,12 +4,14 @@ import { BsPersonCircle } from "react-icons/bs";
 import { HeaderNav, HeaderNavigation, HeaderElement, SingUl,
    Headerlogo, Overlay,Modal, ModalH1,
    ModalUserName, ModalEmail, ModalPassword,
-   ModalForm
+   ModalForm,  Submit, LinkModal, LinkModalSecond
 } from './Header.styled';
 import { MainButton } from '.././Button/Button'; 
 import {  AiOutlineClose} from "react-icons/ai";
 
 export const Header = () => {
+
+const [isSignUpModal, setIsSignUpModal] = useState(true);
   const [isModalOpen, setModalOpen] = useState(false);
   const [isSecondModalOpen, setSecondModalOpen] = useState(false);
 
@@ -20,16 +22,20 @@ export const Header = () => {
     }
   };
 
-  const handleOpenModal = () => {
+  const handleOpenModal = (e) => {
+    e.preventDefault()
     setModalOpen(true);
+    setIsSignUpModal(true);
   };
 
   const handleCloseModal = () => {
     setModalOpen(false);
   };
 
-  const handleOpenSecondModal = () => {
+  const handleOpenSecondModal = (e) => {
+    e.preventDefault()
     setSecondModalOpen(true);
+    setModalOpen(false);
   };
 
   const handleCloseSecondModal = () => {
@@ -99,7 +105,17 @@ export const Header = () => {
                   />
                 </label>
               </ModalForm>
+              <Submit>
               <MainButton type="submit">Sign Up</MainButton>
+
+              </Submit>
+              
+              <LinkModal>
+            Already have an account?{" "}
+            <a href="/" onClick={handleOpenSecondModal}>
+              Log In
+            </a>
+          </LinkModal>
             </Modal>
           </Overlay>
         )}
@@ -132,7 +148,18 @@ export const Header = () => {
                 />
               </label>
             </ModalForm>
+            <Submit>
             <MainButton type="submit">Log In</MainButton>
+
+            </Submit>
+           
+
+            <LinkModalSecond>
+            Don't have an account yet?{" "}
+            <a href="/" onClick={handleOpenModal}>
+              Sign Up
+            </a>
+          </LinkModalSecond>
           </Modal>
         </Overlay>
         )}
