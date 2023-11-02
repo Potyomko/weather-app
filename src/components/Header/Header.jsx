@@ -1,15 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import logo from '../../img/logo.svg';
 import { BsPersonCircle } from "react-icons/bs";
-import { HeaderNav, HeaderNavigation, HeaderElement, SingUl ,Headerlogo } from './Header.styled';
-import './Modal.css';
-import { MainButton } from 'components/Button/Button';
+import { HeaderNav, HeaderNavigation, HeaderElement, SingUl,
+   Headerlogo, Overlay,Modal, ModalH1,
+   ModalUserName, ModalEmail, ModalPassword,
+   ModalForm
+} from './Header.styled';
+import { MainButton } from '.././Button/Button'; 
+import {  AiOutlineClose} from "react-icons/ai";
+
 export const Header = () => {
   const [isModalOpen, setModalOpen] = useState(false);
+  const [isSecondModalOpen, setSecondModalOpen] = useState(false);
 
   const handleKeydown = (e) => {
     if (e.key === "Escape") {
       setModalOpen(false);
+      setSecondModalOpen(false);
     }
   };
 
@@ -21,12 +28,27 @@ export const Header = () => {
     setModalOpen(false);
   };
 
+  const handleOpenSecondModal = () => {
+    setSecondModalOpen(true);
+  };
+
+  const handleCloseSecondModal = () => {
+    setSecondModalOpen(false);
+  };
+
   useEffect(() => {
     window.addEventListener("keydown", handleKeydown);
     return () => {
       window.removeEventListener("keydown", handleKeydown);
     };
   }, []);
+
+  function handleOverlayClick(e) {
+    if (e.currentTarget === e.target) {
+      handleCloseModal();
+      handleCloseSecondModal();
+    }
+  }
 
   return (
     <HeaderElement>
@@ -38,27 +60,85 @@ export const Header = () => {
           <li><p>Menu</p></li>
         </HeaderNavigation>
         <SingUl>
-         <MainButton>Sign in</MainButton>
-
-         <MainButton type="button" onClick={handleOpenModal}>Sign Up</MainButton>
+          <MainButton onClick={handleOpenSecondModal}>Log In</MainButton>
+          <MainButton type="button" onClick={handleOpenModal}>Sign Up</MainButton>
         </SingUl>
-        
+
         {isModalOpen && (
-          <div className="Overlay" onClick={handleOverlayClick}>
-            <div className="Modal">
-              <h1>SignUp</h1>
-              <button onClick={handleCloseModal}>close</button>
-            </div>
-          </div>
+          <Overlay onClick={handleOverlayClick}>
+            <Modal>
+              <AiOutlineClose
+                size={25}
+                onClick={handleCloseModal}
+                style={{ marginLeft: '570px' }}
+              />
+              <ModalH1>Sign Up</ModalH1>
+              <ModalForm>
+                <label htmlFor="username">
+                  Username
+                  <ModalUserName
+                    placeholder="Username"
+                    id="username"
+                    type="text"
+                  />
+                </label>
+                <label htmlFor="email">
+                  E-mail
+                  <ModalEmail
+                    id="email"
+                    placeholder="E-mail"
+                    type="email"
+                  />
+                </label>
+                <label htmlFor="password">
+                  Password
+                  <ModalPassword
+                    id="password"
+                    placeholder="Password"
+                    type="password"
+                  />
+                </label>
+              </ModalForm>
+              <MainButton type="submit">Sign Up</MainButton>
+            </Modal>
+          </Overlay>
         )}
+
+        {isSecondModalOpen && (
+          <Overlay onClick={handleCloseSecondModal}>
+          <Modal>
+            <AiOutlineClose
+              size={25}
+              onClick={handleCloseModal}
+              style={{ marginLeft: '570px' }}
+            />
+            <ModalH1>Log In</ModalH1>
+            <ModalForm>
+              <label htmlFor="username">
+                Username
+                <ModalUserName
+                  placeholder="Username"
+                  id="username"
+                  type="text"
+                />
+              </label>
+             
+              <label htmlFor="password">
+                Password
+                <ModalPassword
+                  id="password"
+                  placeholder="Password"
+                  type="password"
+                />
+              </label>
+            </ModalForm>
+            <MainButton type="submit">Log In</MainButton>
+          </Modal>
+        </Overlay>
+        )}
+
         <BsPersonCircle size={50} style={{ marginLeft: '1300px', marginTop: '-40px' }} />
       </HeaderNav>
     </HeaderElement>
   );
-
-  function handleOverlayClick(e) {
-    if (e.currentTarget === e.target) {
-      handleCloseModal();
-    }
-  }
 };
