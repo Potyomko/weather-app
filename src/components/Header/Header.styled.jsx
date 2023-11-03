@@ -58,7 +58,7 @@ position: fixed;
 `
 
 
-export const Modal = styled.div`
+export const Modalp = styled.div`
 position: absolute;
 top: 50%;
 left: 50%;    
