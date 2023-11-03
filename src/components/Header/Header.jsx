@@ -14,7 +14,9 @@ export const Header = () => {
 const [isSignUpModal, setIsSignUpModal] = useState(true);
   const [isModalOpen, setModalOpen] = useState(false);
   const [isSecondModalOpen, setSecondModalOpen] = useState(false);
-
+const [userName, setUserName] = useState('')
+const [email, setEmail] = useState('')
+const [password, setPassword] = useState('')
   const handleKeydown = (e) => {
     if (e.key === "Escape") {
       setModalOpen(false);
@@ -26,6 +28,7 @@ const [isSignUpModal, setIsSignUpModal] = useState(true);
     e.preventDefault()
     setModalOpen(true);
     setIsSignUpModal(true);
+    setSecondModalOpen(false);
   };
 
   const handleCloseModal = () => {
@@ -55,7 +58,21 @@ const [isSignUpModal, setIsSignUpModal] = useState(true);
       handleCloseSecondModal();
     }
   }
+const handelUserName = (e)=>{
+setUserName(e.currentTarget.value)
+}
+const handelEmail= (e)=>{
+  setEmail(e.currentTarget.value)
+  }
+  const handelPassword = (e)=>{
+    setPassword(e.currentTarget.value)
+    }
 
+   const  handelSubmit = (e)=>{
+      e.preventDefault()
+      localStorage.setItem(userName, JSON.stringify([userName, email, password]))
+      
+    }
   return (
     <HeaderElement>
       <HeaderNav>
@@ -79,13 +96,16 @@ const [isSignUpModal, setIsSignUpModal] = useState(true);
                 style={{ marginLeft: '570px' }}
               />
               <ModalH1>Sign Up</ModalH1>
-              <ModalForm>
+              <ModalForm onSubmit={handelSubmit}>
                 <label htmlFor="username">
                   Username
                   <ModalUserName
                     placeholder="Username"
                     id="username"
                     type="text"
+                    value={userName}
+                    onChange={handelUserName}
+
                   />
                 </label>
                 <label htmlFor="email">
@@ -94,6 +114,8 @@ const [isSignUpModal, setIsSignUpModal] = useState(true);
                     id="email"
                     placeholder="E-mail"
                     type="email"
+                    value={email}
+                    onChange={handelEmail}
                   />
                 </label>
                 <label htmlFor="password">
@@ -102,13 +124,16 @@ const [isSignUpModal, setIsSignUpModal] = useState(true);
                     id="password"
                     placeholder="Password"
                     type="password"
+                    value={password}
+                    onChange={handelPassword}
                   />
                 </label>
-              </ModalForm>
-              <Submit>
+                <Submit>
               <MainButton type="submit">Sign Up</MainButton>
 
               </Submit>
+              </ModalForm>
+              
               
               <LinkModal>
             Already have an account?{" "}
@@ -121,11 +146,11 @@ const [isSignUpModal, setIsSignUpModal] = useState(true);
         )}
 
         {isSecondModalOpen && (
-          <Overlay onClick={handleCloseSecondModal}>
+          <Overlay onClick={handleOverlayClick}>
           <Modal>
             <AiOutlineClose
               size={25}
-              onClick={handleCloseModal}
+              onClick={handleCloseSecondModal}
               style={{ marginLeft: '570px' }}
             />
             <ModalH1>Log In</ModalH1>

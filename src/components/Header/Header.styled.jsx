@@ -132,7 +132,7 @@ export const ModalPassword = styled.input`
 `;
 
 export const Submit = styled.div`
-margin-left: 250px;
+margin-left: 170px;
 margin-top: 50px;
 
 
