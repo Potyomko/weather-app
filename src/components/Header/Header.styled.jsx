@@ -58,7 +58,7 @@ position: fixed;
 `
 
 
-export const Modal = styled.div`
+export const Modalp = styled.div`
 position: absolute;
 top: 50%;
 left: 50%;    
@@ -132,7 +132,7 @@ export const ModalPassword = styled.input`
 `;
 
 export const Submit = styled.div`
-margin-left: 250px;
+margin-left: 170px;
 margin-top: 50px;
 
 

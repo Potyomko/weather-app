@@ -1,31 +1,29 @@
 import React, { useEffect, useState } from 'react';
 import logo from '../../img/logo.svg';
-import { BsPersonCircle } from "react-icons/bs";
-import { HeaderNav, HeaderNavigation, HeaderElement, SingUl,
-   Headerlogo, Overlay,Modal, ModalH1,
-   ModalUserName, ModalEmail, ModalPassword,
-   ModalForm,  Submit, LinkModal, LinkModalSecond
-} from './Header.styled';
-import { MainButton } from '.././Button/Button'; 
-import {  AiOutlineClose} from "react-icons/ai";
+import { BsPersonCircle } from 'react-icons/bs';
+import { HeaderNav, HeaderNavigation, HeaderElement, SingUl, Headerlogo } from './Header.styled';
+import { MainButton } from '../Button/Button';
+import { Modal } from './Modal';
 
 export const Header = () => {
-
-const [isSignUpModal, setIsSignUpModal] = useState(true);
+  const [isSignUpModal, setIsSignUpModal] = useState(false);
   const [isModalOpen, setModalOpen] = useState(false);
   const [isSecondModalOpen, setSecondModalOpen] = useState(false);
-
-  const handleKeydown = (e) => {
-    if (e.key === "Escape") {
-      setModalOpen(false);
-      setSecondModalOpen(false);
-    }
-  };
+  const [isThirdModalOpen, setIsThirdModalOpen] = useState(false);
+  const [userName, setUserName] = useState('');
+  const [email, setEmail] = useState('');
+  const [logInUserName, setLogInUserName] = useState('');
+  const [logInPassword, setLogInPassword] = useState('');
+  const [password, setPassword] = useState('');
+  const [logOut, setLogOut] = useState(false);
+  const [userLoggedIn, setUserLoggedIn] = useState(false);
 
   const handleOpenModal = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     setModalOpen(true);
     setIsSignUpModal(true);
+    setSecondModalOpen(false);
+    setIsThirdModalOpen(false);
   };
 
   const handleCloseModal = () => {
@@ -33,20 +31,30 @@ const [isSignUpModal, setIsSignUpModal] = useState(true);
   };
 
   const handleOpenSecondModal = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     setSecondModalOpen(true);
     setModalOpen(false);
+    setIsThirdModalOpen(false);
   };
 
   const handleCloseSecondModal = () => {
     setSecondModalOpen(false);
   };
 
+  const handleOpenThirdmodal = () => {
+    setIsThirdModalOpen(true);
+  };
+
+  const handleCloseThirdmodal = () => {
+    setIsThirdModalOpen(false);
+  };
+
   useEffect(() => {
-    window.addEventListener("keydown", handleKeydown);
-    return () => {
-      window.removeEventListener("keydown", handleKeydown);
-    };
+    const userNameFromStorage = localStorage.getItem('userName');
+    if (userNameFromStorage) {
+      setUserName(userNameFromStorage);
+      setUserLoggedIn(true);
+    }
   }, []);
 
   function handleOverlayClick(e) {
@@ -55,6 +63,75 @@ const [isSignUpModal, setIsSignUpModal] = useState(true);
       handleCloseSecondModal();
     }
   }
+
+  const handelUserName = (e) => {
+    setUserName(e.currentTarget.value);
+  };
+
+  const handelEmail = (e) => {
+    setEmail(e.currentTarget.value);
+  };
+
+  const handelPassword = (e) => {
+    setPassword(e.currentTarget.value);
+  };
+
+  const handleLogInUserName = (e) => {
+    setLogInUserName(e.currentTarget.value);
+  };
+
+  const handleLogInPassword = (e) => {
+    setLogInPassword(e.currentTarget.value);
+  };
+
+  const handlelogOut = () => {
+    setLogOut(true);
+    setUserLoggedIn(false);
+  };
+
+  const handlelogOutFalse = () => {
+    setLogOut(false);
+  };
+
+  const handelSubmit = (e) => {
+    e.preventDefault();
+    const existingUserJSON = localStorage.getItem('user');
+    let existingUser = {};
+
+    if (existingUserJSON) {
+      existingUser = JSON.parse(existingUserJSON);
+    }
+
+    existingUser[userName] = [userName, email, password];
+
+    localStorage.setItem('user', JSON.stringify(existingUser));
+
+    handleCloseModal();
+
+    localStorage.setItem('userName', userName);
+    setUserLoggedIn(true);
+  };
+
+  const handleLogInSubmit = (e) => {
+    e.preventDefault();
+    const existingUserJSON = localStorage.getItem('user');
+    let existingUser = {};
+
+    if (existingUserJSON) {
+      existingUser = JSON.parse(existingUserJSON);
+    }
+
+    if (existingUser[logInUserName] && existingUser[logInUserName][2] === logInPassword) {
+      localStorage.setItem('userName', logInUserName);
+      setUserLoggedIn(true);
+      setLogInUserName('');
+      setLogInPassword('');
+      handleCloseSecondModal();
+    } else {
+      // Вивести повідомлення про помилку
+      alert('Invalid username or password');
+    }
+  };
 
   return (
     <HeaderElement>
@@ -66,105 +143,43 @@ const [isSignUpModal, setIsSignUpModal] = useState(true);
           <li><p>Menu</p></li>
         </HeaderNavigation>
         <SingUl>
-          <MainButton onClick={handleOpenSecondModal}>Log In</MainButton>
-          <MainButton type="button" onClick={handleOpenModal}>Sign Up</MainButton>
+          {userLoggedIn ? (
+            <p>{userName}</p>
+          ) : (
+            <>
+              <MainButton onClick={handleOpenSecondModal}>Log In</MainButton>
+              <MainButton type="button" onClick={handleOpenModal}>Sign Up</MainButton>
+            </>
+          )}
         </SingUl>
-
-        {isModalOpen && (
-          <Overlay onClick={handleOverlayClick}>
-            <Modal>
-              <AiOutlineClose
-                size={25}
-                onClick={handleCloseModal}
-                style={{ marginLeft: '570px' }}
-              />
-              <ModalH1>Sign Up</ModalH1>
-              <ModalForm>
-                <label htmlFor="username">
-                  Username
-                  <ModalUserName
-                    placeholder="Username"
-                    id="username"
-                    type="text"
-                  />
-                </label>
-                <label htmlFor="email">
-                  E-mail
-                  <ModalEmail
-                    id="email"
-                    placeholder="E-mail"
-                    type="email"
-                  />
-                </label>
-                <label htmlFor="password">
-                  Password
-                  <ModalPassword
-                    id="password"
-                    placeholder="Password"
-                    type="password"
-                  />
-                </label>
-              </ModalForm>
-              <Submit>
-              <MainButton type="submit">Sign Up</MainButton>
-
-              </Submit>
-              
-              <LinkModal>
-            Already have an account?{" "}
-            <a href="/" onClick={handleOpenSecondModal}>
-              Log In
-            </a>
-          </LinkModal>
-            </Modal>
-          </Overlay>
-        )}
-
-        {isSecondModalOpen && (
-          <Overlay onClick={handleCloseSecondModal}>
-          <Modal>
-            <AiOutlineClose
-              size={25}
-              onClick={handleCloseModal}
-              style={{ marginLeft: '570px' }}
-            />
-            <ModalH1>Log In</ModalH1>
-            <ModalForm>
-              <label htmlFor="username">
-                Username
-                <ModalUserName
-                  placeholder="Username"
-                  id="username"
-                  type="text"
-                />
-              </label>
-             
-              <label htmlFor="password">
-                Password
-                <ModalPassword
-                  id="password"
-                  placeholder="Password"
-                  type="password"
-                />
-              </label>
-            </ModalForm>
-            <Submit>
-            <MainButton type="submit">Log In</MainButton>
-
-            </Submit>
-           
-
-            <LinkModalSecond>
-            Don't have an account yet?{" "}
-            <a href="/" onClick={handleOpenModal}>
-              Sign Up
-            </a>
-          </LinkModalSecond>
-          </Modal>
-        </Overlay>
-        )}
-
-        <BsPersonCircle size={50} style={{ marginLeft: '1300px', marginTop: '-40px' }} />
+        <Modal
+          isModalOpen={isModalOpen}
+          isSecondModalOpen={isSecondModalOpen}
+          isThirthModalOpen={isThirdModalOpen}
+          handleCloseModal={handleCloseModal}
+          handleCloseSecondModal={handleCloseSecondModal}
+          handleOpenSecondModal={handleOpenSecondModal}
+          handleOpenModal={handleOpenModal}
+          handleCloseThirdmodal={handleCloseThirdmodal}
+          handelSubmit={handelSubmit}
+          handelUserName={handelUserName}
+          handelEmail={handelEmail}
+          handlelogOut={handlelogOut}
+          handlelogOutFalse={handlelogOutFalse}
+          handelPassword={handelPassword}
+          handleOverlayClick={handleOverlayClick}
+          userName={userName}
+          email={email}
+          password={password}
+          logOut={logOut}
+          userLoggedIn={userLoggedIn}
+          handleLogInUserName={handleLogInUserName}
+          handleLogInPassword={handleLogInPassword}
+          handleLogInSubmit={handleLogInSubmit}
+          logInUserName={logInUserName}
+          logInPassword={logInPassword}
+        />
+        <BsPersonCircle onClick={handleOpenThirdmodal} size={50} style={{ marginLeft: '1300px', marginTop: '-40px' }} />
       </HeaderNav>
     </HeaderElement>
   );
