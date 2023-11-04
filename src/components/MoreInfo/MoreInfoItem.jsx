@@ -1,7 +1,9 @@
-export const MoreInfoItem = ({key, infoName, mainInfo, icon: Icon }) => {
-    return <li key={key}>
-        <p>{infoName}</p>
-        <p>{mainInfo}</p>
-        {Icon && <Icon/>}
-    </li>
+import {MainInfo, InfoName} from './MoreInfo.styled'
+
+export const MoreInfoItem = ({infoName, mainInfo, icon: Icon }) => {
+    return <>
+        <InfoName>{infoName}</InfoName>
+        <MainInfo pad={Icon}>{mainInfo}</MainInfo>
+        {Icon && <Icon size={80} />}
+    </>
 }

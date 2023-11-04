@@ -13,7 +13,8 @@ export const App = () => {
       <Header />
       <Hero/>
       {/* <WeatherForecastForWeek /> */}
-      <News/>
+      {/* <MoreInfoList city='London'/> */}
+      {/* <News/> */}
       <Footer/>
       <GlobalStyle/>
     </div>

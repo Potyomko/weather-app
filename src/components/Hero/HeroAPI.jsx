@@ -18,5 +18,5 @@ export const HeroAPI = ({ city }) => {
           console.error('Помилка при отриманні даних погоди:', error);
         });
     }
-  }, [city, weather]);
+  }, [city]);
 }
