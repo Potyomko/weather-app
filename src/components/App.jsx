@@ -12,7 +12,6 @@ export const App = () => {
     <div>
       <Header />
       <Hero/>
-      {/* <WeatherForecastForWeek/> */}
       <News/>
       <Footer/>
       <GlobalStyle/>
