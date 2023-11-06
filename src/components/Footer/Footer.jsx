@@ -1,4 +1,5 @@
 import { FooterAdress, FooterAdressDiv, FooterAdressTitle, FooterContactUsDiv, FooterContactUsTitle, FooterSection, FooterIconsDiv, FooterIconInstagram, FooterIconFacebook, FooterIconWhatsapp, FooterIconLogoDiv } from "./Footer.styled";
+import { Container } from "GlobalStyle";
 import Facebook from '../../img/facebook.svg';
 import Instagram from '../../img/instagram.svg';
 import Whatsapp from '../../img/whatsapp.svg';

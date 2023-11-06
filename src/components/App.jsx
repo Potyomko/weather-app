@@ -11,7 +11,7 @@ export const App = () => {
   return (
     <div>
       <Header />
-      <Hero/>
+      <Hero />
       <News/>
       <Footer/>
       <GlobalStyle/>
