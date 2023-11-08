@@ -114,24 +114,20 @@ export const Header = () => {
 
   const handleLogInSubmit = (e) => {
     e.preventDefault();
+    console.log('dgv');
     const existingUserJSON = localStorage.getItem('user');
-    let existingUser = {};
-
     if (existingUserJSON) {
-      existingUser = JSON.parse(existingUserJSON);
-    }
-
-    if (existingUser[logInUserName] && existingUser[logInUserName][2] === logInPassword) {
-      localStorage.setItem('userName', logInUserName);
-      setUserLoggedIn(true);
-      setLogInUserName('');
-      setLogInPassword('');
-      handleCloseSecondModal();
-    } else {
-      // Вивести повідомлення про помилку
-      alert('Invalid username or password');
-    }
+      const existingUser = JSON.parse(existingUserJSON);
+      if (existingUser[logInUserName] && existingUser[logInUserName][2] === logInPassword) {
+        
+        setUserLoggedIn(true);
+        handleCloseSecondModal();
+      } else {
+alert('неправельні дані')
+      }
+    } 
   };
+  
 
   return (
     <HeaderElement>
@@ -143,14 +139,17 @@ export const Header = () => {
           <li><p>Menu</p></li>
         </HeaderNavigation>
         <SingUl>
-          {userLoggedIn ? (
-            <p>{userName}</p>
-          ) : (
-            <>
-              <MainButton onClick={handleOpenSecondModal}>Log In</MainButton>
-              <MainButton type="button" onClick={handleOpenModal}>Sign Up</MainButton>
-            </>
-          )}
+        {userLoggedIn ? (
+  <>
+    <p>{userName}</p>
+   
+  </>
+) : (
+  <>
+    <MainButton onClick={handleOpenSecondModal}>Log In</MainButton>
+    <MainButton type="button" onClick={handleOpenModal}>Sign Up</MainButton>
+  </>
+)}
         </SingUl>
         <Modal
           isModalOpen={isModalOpen}
