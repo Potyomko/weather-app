@@ -133,10 +133,11 @@ export const Modal = ({
                   value={logInPassword}
                 />
               </label>
-            </ModalForm>
-            <Submit>
+              <Submit>
               <MainButton type="submit">Log In</MainButton>
             </Submit>
+            </ModalForm>
+            
             <LinkModalSecond>
               Don't have an account yet?{" "}
               <a href="/" onClick={handleOpenModal}>
@@ -163,7 +164,7 @@ export const Modal = ({
               <p>E-mail: {userStorage[userName][1]}</p>
               <p>Password: {userStorage[userName][2]}</p>
               <MainButton onClick={handlelogOut}>Log Out</MainButton>
-              <MainButton>Delete Account</MainButton>
+          
             </>
           )}
         </>
