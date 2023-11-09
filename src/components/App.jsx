@@ -15,7 +15,7 @@ export const App = () => {
       <Hero/>
       <Hero />
       <News/>
-      <Gallery />
+      {/* <Gallery /> */}
       <Footer/>
       <GlobalStyle/>
     </div>
