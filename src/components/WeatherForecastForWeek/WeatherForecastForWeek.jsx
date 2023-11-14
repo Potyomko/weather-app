@@ -1,24 +1,27 @@
-import { useEffect } from "react";
-import { useState } from "react";
 import { Li } from "./WeatherForecastForWeek.styled";
 import { P } from "./WeatherForecastForWeek.styled";
 
-export const WeatherForecastForWeek = () => {
+export const WeatherForecastForWeek = ({theWeather}) => {
     
-    const weatherData = window.localStorage.getItem('Weather');
-    const myWeather = JSON.parse(weatherData);
-    const firstDayData = myWeather.daily[0];
-    const secondDayData = myWeather.daily[1];
-    const thirdDayData = myWeather.daily[2];
-    const fourthDayData = myWeather.daily[3];
-    const fifthDayData = myWeather.daily[4];
-    const sixthDayData = myWeather.daily[5];
-    const seventhDayData = myWeather.daily[6];
-    return(
+    const firstDayData = theWeather.daily[0]
+    const secondDayData = theWeather.daily[1]
+    const thirdDayData = theWeather.daily[2]
+    const fourthDayData = theWeather.daily[3]
+    const fifthDayData = theWeather.daily[4]
+    const sixthDayData = theWeather.daily[5]
+    const seventhDayData = theWeather.daily[6]
+    const eighthDayData = theWeather.daily[7]
+
+return(
         <>
+        {console.log(theWeather.lat)}
+        {/* <p>{theWeather.lat}</p> */}
+        {console.log(theWeather.timezone)}
+        {console.log(firstDayData.temp.day)}
+        
         <ul>
             <h2>8-day forecast</h2>
-            {console.log(myWeather)}
+            {/* {console.log(myWeather)} */}
             <Li>
                 <P>First day of week:</P>
                 <p>Temperature: {(firstDayData.temp.day - 273.15).toFixed(2)} / {(firstDayData.temp.night - 273.15).toFixed(2)} °C</p>
@@ -40,22 +43,22 @@ export const WeatherForecastForWeek = () => {
                 <p>Weather: {fourthDayData.weather.map(oneWeather => {return oneWeather.description})}</p>
             </Li>
             <Li>
-                <P>Fourth day of week:</P>
+                <P>Fifth day of week:</P>
                 <p>Temperature: {(fifthDayData.temp.day - 273.15).toFixed(2)} / {(fifthDayData.temp.night - 273.15).toFixed(2)}</p>
                 <p>Weather: {fifthDayData.weather.map(oneWeather => {return oneWeather.description})}</p>
             </Li>
             <Li>
-                <P>Fourth day of week:</P>
+                <P>Sixth day of week:</P>
                 <p>Temperature: {(sixthDayData.temp.day - 273.15).toFixed(2)} / {(sixthDayData.temp.night - 273.15).toFixed(2)}</p>
                 <p>Weather: {sixthDayData.weather.map(oneWeather => {return oneWeather.description})}</p>
             </Li>
             <Li>
-                <P>Fourth day of week:</P>
+                <P>Seventh day of week:</P>
                 <p>Temperature: {(seventhDayData.temp.day - 273.15).toFixed(2)} / {(seventhDayData.temp.night - 273.15).toFixed(2)}</p>
                 <p>Weather: {seventhDayData.weather.map(oneWeather => {return oneWeather.description})}</p>
             </Li>
        </ul>
          </>
-    )
+    );
     
 };

@@ -1,36 +1,37 @@
 import { useEffect } from "react";
-import { useState } from "react"
+import { useState } from "react";
+import { WeatherForecastForWeek } from "./WeatherForecastForWeek";
 
-export const WeekForecastLocationAPI = ({city}) => {
+export const WeekForecastLocationAPI = ({theCity}) => {
     const [lat, setLat] = useState('');
     const [lon, setLon] = useState('');
+    const [weather, setWeather] = useState(''); 
+    const [cityName, setCityName] = useState('');
 useEffect(() => {
-    if(city){
-        fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=10&appid=40207e285e43c5b8e49ba7f2599cdd4b`)
-        .then((response) => response.json())
-        .then((data) => {
-            data.map((dataObj) => {
-                return setLat(dataObj.lat)
-            });
-            data.map((dataObj) => {
-                return setLon(dataObj.lon)
-            });
-        })
-        .catch((error) => {
-            console.error('Помилка при отриманні даних погоди:', error);
-          });
-
-        fetch(`https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lon}&appid=40207e285e43c5b8e49ba7f2599cdd4b`)
+    if('New York'){
+        const myCity = JSON.parse(window.localStorage.getItem('cities')).find(oneCity => oneCity.name === theCity)
+        setLat(myCity.coord.lat)
+        setLon(myCity.coord.lon)
+        if(lat && lon && theCity){
+            fetch(`https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lon}&appid=40207e285e43c5b8e49ba7f2599cdd4b`)
         .then((response) => response.json())  
-        .then(data => window.localStorage.setItem('Weather', JSON.stringify(data)))
-
+        .then(data => setWeather(data))
+        }
+        
+        console.log(myCity)
+        
+        console.log(lat)
+        console.log(lon)
     }
     
-}, [city, lat, lon]);
+}, [theCity, lat, lon]);
 return(
     <>
-    {window.localStorage.setItem('Latitude', JSON.stringify.lat)}
-    {window.localStorage.setItem('Longtitude', JSON.stringify.lon)}
+    {console.log(weather)}
+    {/* {window.localStorage.setItem('Latitude', JSON.stringify.lat)}
+    {window.localStorage.setItem('Longtitude', JSON.stringify.lon)} */}
+    {weather && <WeatherForecastForWeek theWeather={weather}/>}
+    {/* {cityName && <p>{cityName.name}</p>} */}
     </>
 )
 };
