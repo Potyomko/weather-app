@@ -1,4 +1,5 @@
 import { FooterAdress, FooterAdressDiv, FooterAdressTitle, FooterContactUsDiv, FooterContactUsTitle, FooterSection, FooterIconsDiv, FooterIconInstagram, FooterIconFacebook, FooterIconWhatsapp, FooterIconLogoDiv } from "./Footer.styled";
+import { Container } from "GlobalStyle";
 import Facebook from '../../img/facebook.svg';
 import Instagram from '../../img/instagram.svg';
 import Whatsapp from '../../img/whatsapp.svg';
@@ -7,6 +8,7 @@ import Logo from '../../img/logo.svg';
 export const Footer = () => {
     return (
         <FooterSection>
+            {/* <Container> */}
             <FooterIconLogoDiv>
                 <img src={Logo} alt="Logo" />
             </FooterIconLogoDiv>
@@ -23,7 +25,8 @@ export const Footer = () => {
                         <FooterIconFacebook src={Facebook} alt="facebook" />
                         <FooterIconWhatsapp src={Whatsapp} alt="whatsapp" />
                     </FooterIconsDiv>
-            </FooterContactUsDiv>
+                </FooterContactUsDiv>
+            {/* </Container> */}
         </FooterSection>
     )
 }
