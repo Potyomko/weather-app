@@ -32,3 +32,12 @@ align-items: center;
 background-color: #D9D9D9;
 border-radius: 10px;
 `
+
+export const ChartContainer = styled.div`
+margin: 40px 150px;
+background-color: ${({ theme }) => theme.colors.greyCards};
+border-radius: 20px;
+align-items: center;
+justify-content: center;
+padding: 10px;
+`

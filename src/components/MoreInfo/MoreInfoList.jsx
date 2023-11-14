@@ -6,9 +6,7 @@ import { MdAir, MdOutlineVisibility, MdOutlineVisibilityOff } from "react-icons/
 import { InfoList, InfoItem } from './MoreInfo.styled';
 
 export const MoreInfoList = ({city}) => {
-  const [lat, setLat] = useState(null);
-  const [lon, setLon] = useState(null);
-  const [hourlyWeather, setHourlyWeather] = useState(null);
+
   const [weather, setWeather] = useState([])
   const [currentCity, setCurrentCity] = useState(null)
 
@@ -21,21 +19,8 @@ export const MoreInfoList = ({city}) => {
          setInfo(oneCity)
       }
       return oneCity
-    });
-    console.log(currentCity)
-     
-      // const fatchData = async () =>{
-    // if (currentCity ) {
-    //   setInfo(currentCity)
-    // }
-      // }
-
-      // fatchData()
-      if(lat){
-      moreInfoApi(lat, lon, setHourlyWeather)}
-  
-    
-}, [city, lat, lon])
+    });  
+}, [city])
 
   const setInfo = (info) => {
     const visibility = info.visibility > 300 ? 'Unlimited' : 'Limited';
@@ -47,10 +32,6 @@ export const MoreInfoList = ({city}) => {
       { name: 'Wind speed', value: `${info.wind.speed} m/s`, icon: MdAir },
       { name: 'Visibility', value: visibility, icon: MdOutlineVisibility },
  ])
-    
-      setLat(info.coord.lat)
-      setLon(info.coord.lon)
-
 
   }
 
@@ -68,11 +49,6 @@ export const MoreInfoList = ({city}) => {
     </InfoItem>
     })}
   </InfoList>
-    {/* // {hourlyWeather && <ul>{hourlyWeather.map((hour) => {
-    //   return <p key={hour.dt}>{hour.dt}</p>
-    // })}</ul>} */}
-    
-    
     </>
 }
 

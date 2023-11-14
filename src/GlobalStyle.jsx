@@ -7,16 +7,16 @@ export const Container = styled.div`
     margin-left: auto;
     margin-right: auto;
 
-    @media screen and (min-width: $mobile) {
-        width: $mobile;
+    @media screen and (max-width: 320px) {
+        width: 320px;
     }
 
-    @media screen and (min-width: $tablet) {
-        width: $tablet;
+    @media screen and (min-width: 768px) {
+        width: 768px;
     }
 
-    @media screen and (min-width: $desktop) {
-        width: $desktop;
+    @media screen and (min-width: 1200px) {
+        width: 1200px;
     }
 `
 

@@ -6,6 +6,8 @@ import Gallery from "./Gallery/Gallery";
 import { WeatherForecastForWeek } from "./WeatherForecastForWeek/WeatherForecastForWeek";
 import { Header } from "./Header/Header";
 import { WeekForecastLocationAPI } from "./WeatherForecastForWeek/WeatherForecastLocationAPI";
+import { MoreInfoList } from "./MoreInfo/MoreInfoList";
+import { MoreInfoChartComponent } from "./MoreInfo/MoreInfoChartComponent";
 
 export const App = () => {
   return (
@@ -15,7 +17,6 @@ export const App = () => {
       {console.log(<WeatherForecastForWeek/>)}
       <WeekForecastLocationAPI theCity={'New York'}/>
       <News/>
-      <Gallery />
       <Footer/>
       <GlobalStyle/>
     </div>

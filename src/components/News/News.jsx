@@ -11,10 +11,13 @@ export const News = () => {
     //     console.log(img);
     // }
 
+    
     // useEffect(() => {
-    //     fetch(`https://newsapi.org/v2/everything?pageSize=4&q=tesla&counrty=us&sortBy=publishedAt&apiKey=f58eaf87dd6248efaa19cf893b7b86fa`) 
-    //     .then(res => res.json())
-    //     .then(result => setNews(result.articles))
+        setInterval(() => {
+            fetch(`https://newsapi.org/v2/everything?pageSize=4&q=tesla&counrty=us&sortBy=publishedAt&apiKey=f58eaf87dd6248efaa19cf893b7b86fa`) 
+            .then(res => res.json())
+            .then(result => setNews(result.articles))
+        }, 10000)
     // }, [] )
     
     
@@ -33,18 +36,11 @@ export const News = () => {
                         {news && news.map((onenew) => {
                             return (
                                 <>
-                                    <NewsItem
-                                        img={onenew.urlToImg}
-                                        description={onenew.description} />
-                                    <NewsItem
-                                        img={onenew.urlToImg}
-                                        description={onenew.description} />
-                                    <NewsItem
-                                        img={onenew.urlToImg}
-                                        description={onenew.description} />
-                                    <NewsItem
-                                        img={onenew.urlToImg}
-                                        description={onenew.description} />
+                                    <li key={onenew.author}> 
+                                        <NewsItem
+                                            img={onenew.urlToImage}
+                                            description={onenew.description} />
+                                    </li>
                                 </>
                             ) 
                         })}
