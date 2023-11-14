@@ -12,32 +12,36 @@ export const MoreInfoChartComponent = ({ city }) => {
     const [prevCity, setPrevcity] = useState(null)
     
     useEffect(() => {
-        console.log(prevCity);
-        if (city !== prevCity) {
-            setPrevcity(city)
-            setCurrentCity(city)
-        }
+        // console.log(prevCity);
+        // if (city !== prevCity) {
+        //     setPrevcity(city)
+        //     setCurrentCity(city)
+        // }
+        // || currentCity
 
-        if(!ourCity || currentCity){
+        if (!ourCity) {
+            
     const citysJSON = localStorage.getItem('cities');
         const citys = JSON.parse(citysJSON);
             setOurCity(citys.find(oneCity => oneCity.name === city)) 
-            setHourlyWeather(null)
+            console.log(ourCity);
+            // setHourlyWeather(null)
        }
          
       if(ourCity && !hourlyWeather){
           moreInfoApi(ourCity.coord.lat, ourCity.coord.lon, setHourlyWeather)
-          setOptions(null)
+        //   setOptions(null)
         }
         
       if (hourlyWeather && !options) {
          hourlyOwercast(hourlyWeather, setOptions, setData)
       }
-if(currentCity){
-        setCurrentCity(null)
-}
+// if(currentCity){
+//         setCurrentCity(null)
+// }
+console.log('effect')
 
-}, [city, ourCity, hourlyWeather, options, currentCity])
+}, [city, ourCity, hourlyWeather, options])
     
    return <ChartContainer>{options && <Line options={options} data={data} />}</ChartContainer>
 }

@@ -6,12 +6,17 @@ import { Hero } from "./Hero/Hero";
 import {Footer} from './Footer/Footer';
 import { WeatherForecastForWeek } from "./WeatherForecastForWeek/WeatherForecastForWeek";
 import { Header } from "./Header/Header";
+import { MoreInfoList } from "./MoreInfo/MoreInfoList";
+import { MoreInfoChartComponent } from "./MoreInfo/MoreInfoChartComponent";
 
 export const App = () => {
   return (
     <div>
       <Header />
       <Hero />
+      {/* <MoreInfoList city='London'/>
+        <MoreInfoChartComponent city='London'/> */}
+     
       <News/>
       <Footer/>
       <GlobalStyle/>
