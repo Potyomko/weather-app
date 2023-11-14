@@ -35,8 +35,9 @@ const months = [
 
 const currentMonth = months[currentDate.getMonth()];
   return (
+    
     <HeroSection>
-
+  {console.log(cityName)}
 
       <HeroH1>Weather dashboard</HeroH1>
 
@@ -71,7 +72,7 @@ const currentMonth = months[currentDate.getMonth()];
         )}
       </Formik>
       <HeroAPI city={cityName} />
-      <WeekForecastLocationAPI city={cityName}/>
+      {/* <WeekForecastLocationAPI city={cityName}/> */}
     </HeroSection>
   );
 }
