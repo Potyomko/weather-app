@@ -7,15 +7,15 @@ import {Footer} from './Footer/Footer';
 import Gallery from "./Gallery/Gallery";
 import { WeatherForecastForWeek } from "./WeatherForecastForWeek/WeatherForecastForWeek";
 import { Header } from "./Header/Header";
+import { MoreInfoList } from "./MoreInfo/MoreInfoList";
+import { MoreInfoChartComponent } from "./MoreInfo/MoreInfoChartComponent";
 
 export const App = () => {
   return (
     <div>
       <Header />
-      <Hero/>
       <Hero />
       <News/>
-      {/* <Gallery /> */}
       <Footer/>
       <GlobalStyle/>
     </div>
