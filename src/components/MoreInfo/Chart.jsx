@@ -32,7 +32,7 @@ export const hourlyOwercast = (hourly, setOptions, setData) => {
       text: 'Hourly forecast',
       position: 'top',
       align: 'start',
-      padding: '15px'
+      padding: 20
     },
   },
     };

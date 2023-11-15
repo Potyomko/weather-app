@@ -4,12 +4,13 @@ export const InfoList = styled.ul`
 display:flex;
 gap: 40px 58px;
 flex-wrap:wrap;
-margin: 40px 150px;
+
 background-color: ${({ theme }) => theme.colors.greyCards};
 border-radius: 20px;
 padding: 40px 77px;
 justify-content: center;
 `
+// margin: 40px 150px;
 
 export const InfoName = styled.p`
 font-size: 16px;
@@ -34,10 +35,12 @@ border-radius: 10px;
 `
 
 export const ChartContainer = styled.div`
-margin: 40px 150px;
+display: flex;
 background-color: ${({ theme }) => theme.colors.greyCards};
 border-radius: 20px;
 align-items: center;
 justify-content: center;
-padding: 10px;
+
 `
+// padding: 10px;
+// margin: 40px 150px;
