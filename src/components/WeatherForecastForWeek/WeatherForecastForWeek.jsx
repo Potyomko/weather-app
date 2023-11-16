@@ -14,20 +14,21 @@ export const WeatherForecastForWeek = ({theWeather}) => {
 
 return(
         <>
-        {console.log(theWeather.lat)}
-        {/* <p>{theWeather.lat}</p> */}
+        {console.log(theWeather)}
+        {/* <p>{theWeather.lat}</p>
         {console.log(theWeather.timezone)}
-        {console.log(firstDayData.temp.day)}
+        {console.log(theWeather.daily[0])} */}
+        {/* {console.log(firstDayData.temp.day)}  */}
         
         <ul>
             <h2>8-day forecast</h2>
             {/* {console.log(myWeather)} */}
-            <Li>
+             <Li>
                 <P>First day of week:</P>
                 <p>Temperature: {(firstDayData.temp.day - 273.15).toFixed(2)} / {(firstDayData.temp.night - 273.15).toFixed(2)} °C</p>
                 <p>Weather: {firstDayData.weather.map(oneWeather => {return oneWeather.description})}</p>
             </Li>
-            <Li>
+             <Li>
                 <P>Second day of week:</P>
                 <p>Temperature: {(secondDayData.temp.day - 273.15).toFixed(2)} / {(secondDayData.temp.night - 273.15).toFixed(2)}</p>
                 <p>Weather: {secondDayData.weather.map(oneWeather => {return oneWeather.description})}</p>
