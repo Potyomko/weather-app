@@ -8,7 +8,7 @@ export const WeekForecastLocationAPI = ({theCity}) => {
     const [weather, setWeather] = useState(''); 
     const [cityName, setCityName] = useState('');
 useEffect(() => {
-    if('New York'){
+    if(theCity){
         const myCity = JSON.parse(window.localStorage.getItem('cities')).find(oneCity => oneCity.name === theCity)
         setLat(myCity.coord.lat)
         setLon(myCity.coord.lon)
