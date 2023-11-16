@@ -19,7 +19,7 @@ export const App = () => {
       <Hero />
       <SomeInfo />
       {console.log(<WeatherForecastForWeek/>)}
-      <WeekForecastLocationAPI theCity={'New York'}/>
+      {/* <WeekForecastLocationAPI theCity={'New York'}/> */}
       <News/>
       <Footer/>
       <GlobalStyle/>

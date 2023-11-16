@@ -1,5 +1,9 @@
 import { useEffect, useState } from "react"
 import { NewsItem } from "./NewsItem";
+import image1 from "img/Nature1.jpg"
+import image2 from "img/Nature2.jpg"
+import image3 from "img/Nature3.jpg"
+import image4 from "img/Nature4.jpg"
 
 export const News = () => {
 
@@ -33,17 +37,35 @@ export const News = () => {
         <>
             <div>
                 <ul>
-                        {news && news.map((onenew) => {
+                        {/* {news && news.map((onenew) => {
                             return (
-                                <>
                                     <li key={onenew.author}> 
                                         <NewsItem
                                             img={onenew.urlToImage}
                                             description={onenew.description} />
                                     </li>
-                                </>
                             ) 
-                        })}
+                        })} */}
+                                    <li> 
+                                        <NewsItem
+                                            img={image1}
+                                        />
+                                    </li>
+                                    <li> 
+                                        <NewsItem
+                                            img={image2}
+                                        />
+                                    </li>
+                                    <li> 
+                                        <NewsItem
+                                            img={image3}
+                                        />
+                                    </li>
+                                    <li> 
+                                        <NewsItem
+                                            img={image4}
+                                        />
+                                    </li>
                 </ul>
             </div>
         </>
