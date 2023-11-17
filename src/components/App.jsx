@@ -1,5 +1,5 @@
 import { GlobalStyle } from "../GlobalStyle";
-import { News } from "./News/News";
+// import { News } from "./News/News";
 import { Hero } from "./Hero/Hero";
 // import { HeroAPI } from "./Hero/HeroAPI";
 // import {MoreInfoList } from './MoreInfo/MoreInfoList.jsx';
@@ -11,12 +11,24 @@ import { Header } from "./Header/Header";
 import { WeekForecastLocationAPI } from "./WeatherForecastForWeek/WeatherForecastLocationAPI";
 import { MoreInfoList } from "./MoreInfo/MoreInfoList";
 import { MoreInfoChartComponent } from "./MoreInfo/MoreInfoChartComponent";
+import Weather from './WeatherCard/WeatherCard'
+import { useState } from "react";
 
 export const App = () => {
+  const [cityName, setCityName] = useState('')
+  const getCityName = (city) => {
+    setCityName(city)
+  }
+  console.log(cityName);
+
   return (
     <div>
       <Header />
-      <Hero />
+      <Hero getCityName={getCityName}/>
+      <Weather cityName={cityName}/>
+      {console.log(<WeatherForecastForWeek/>)}
+      <WeekForecastLocationAPI theCity={'New York'}/>
+      {/* <News/> */}
       <SomeInfo />
       {/* {console.log(<WeatherForecastForWeek/>)} */}
       {/* <WeekForecastLocationAPI theCity={'New York'}/> */}
