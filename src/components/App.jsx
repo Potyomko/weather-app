@@ -1,6 +1,9 @@
 import { GlobalStyle } from "../GlobalStyle";
 // import { News } from "./News/News";
 import { Hero } from "./Hero/Hero";
+// import { HeroAPI } from "./Hero/HeroAPI";
+// import {MoreInfoList } from './MoreInfo/MoreInfoList.jsx';
+import { SomeInfo } from "./SomeInfo/SomeInfo";
 import {Footer} from './Footer/Footer';
 import Gallery from "./Gallery/Gallery";
 import { WeatherForecastForWeek } from "./WeatherForecastForWeek/WeatherForecastForWeek";
@@ -26,6 +29,10 @@ export const App = () => {
       {console.log(<WeatherForecastForWeek/>)}
       <WeekForecastLocationAPI theCity={'New York'}/>
       {/* <News/> */}
+      <SomeInfo />
+      {/* {console.log(<WeatherForecastForWeek/>)} */}
+      {/* <WeekForecastLocationAPI theCity={'New York'}/> */}
+      <News/>
       <Footer/>
       <GlobalStyle/>
     </div>

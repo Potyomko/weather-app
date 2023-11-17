@@ -73,7 +73,6 @@ const currentMonth = months[currentDate.getMonth()];
         )}
       </Formik>
       <HeroAPI city={cityName} />
-      {/* <WeekForecastLocationAPI city={cityName}/> */}
     </HeroSection>
   );
 }
