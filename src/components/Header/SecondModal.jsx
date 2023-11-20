@@ -3,7 +3,7 @@ import { Overlay, Modalp, ModalH1, ModalUserName, ModalEmail, ModalPassword, Mod
 import { AiOutlineClose } from "react-icons/ai";
 import { MainButton } from '../Button/Button';
 
-export const SecondModal = ({handleCloseSecondModal, handleLogInSubmit,handleOpenModal})=>{
+export const SecondModal = ({handleCloseSecondModal, handleLogInSubmit,handleOpenModal, getLogInUserData})=>{
     const [logInUserName, setLogInUserName] = useState('');
     const [logInPassword, setLogInPassword] = useState('');
     const handleLogInUserName = (e) => {
@@ -13,6 +13,7 @@ export const SecondModal = ({handleCloseSecondModal, handleLogInSubmit,handleOpe
       const handleLogInPassword = (e) => {
         setLogInPassword(e.currentTarget.value);
       };
+      getLogInUserData({logInUserName, logInPassword})
     return(
         <>
           <AiOutlineClose

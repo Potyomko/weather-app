@@ -1,76 +1,226 @@
-import { useState } from 'react';
-import { Overlay, Modalp, ModalH1, ModalUserName, ModalEmail, ModalPassword, ModalForm, Submit, LinkModal, LinkModalSecond } from './Header.styled';
-import { AiOutlineClose } from "react-icons/ai";
+import React, { useEffect, useState } from 'react';
+import logo from '../../img/logo.svg';
+import { BsPersonCircle } from 'react-icons/bs';
+import { HeaderNav, HeaderNavigation, HeaderElement, SingUl, Headerlogo } from './Header.styled';
 import { MainButton } from '../Button/Button';
-export const FirstModal = ({handleCloseModal, handelSubmit,handleOpenSecondModal })=>{
+import { Modal } from './Modal';
+import { Container } from 'GlobalStyle';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { FirstModal } from './FirstModal';
+import { SecondModal } from './SecondModal';
+import { ThirdModal } from './ThirdModal';
+export const Header = () => {
+  const [isSignUpModal, setIsSignUpModal] = useState(false);
+  const [isModalOpen, setModalOpen] = useState(false);
+  const [isSecondModalOpen, setSecondModalOpen] = useState(false);
+  const [isThirdModalOpen, setIsThirdModalOpen] = useState(false);
+  
+  
+  const [logOut, setLogOut] = useState(false);
+  const [userLoggedIn, setUserLoggedIn] = useState(false);
+  const [userData, setUserData] = useState(null)
+  const [logInUserData, setLogInUserData] = useState(null)
 
-    const [userName, setUserName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
 
-  const handelUserName = (e) => {
-    setUserName(e.currentTarget.value);
+
+  const handleOpenModal = (e) => {
+    e.preventDefault();
+    setModalOpen(true);
+    setIsSignUpModal(true);
+    setSecondModalOpen(false);
+    setIsThirdModalOpen(false);
   };
 
-  const handelEmail = (e) => {
-    setEmail(e.currentTarget.value);
+  const handleCloseModal = () => {
+    setModalOpen(false);
   };
 
-  const handelPassword = (e) => {
-    setPassword(e.currentTarget.value);
+  const handleOpenSecondModal = (e) => {
+    e.preventDefault();
+    setSecondModalOpen(true);
+    setModalOpen(false);
+    setIsThirdModalOpen(false);
   };
 
-return(
-<>
+  const handleCloseSecondModal = () => {
+    setSecondModalOpen(false);
+  };
 
-<AiOutlineClose
-    size={25}
-    onClick={handleCloseModal}
-    style={{ marginLeft: '570px' }}
-  />
-  <ModalH1>Sign Up</ModalH1>
-  <ModalForm onSubmit={handelSubmit}>
-    <label htmlFor="username">
-      Username
-      <ModalUserName
-        placeholder="Username"
-        id="username"
-        type="text"
-        value={userName}
-        onChange={handelUserName}
-      />
-    </label>
-    <label htmlFor="email">
-      E-mail
-      <ModalEmail
-        id="email"
-        placeholder="E-mail"
-        type="email"
-        value={email}
-        onChange={handelEmail}
-      />
-    </label>
-    <label htmlFor="password">
-      Password
-      <ModalPassword
-        id="password"
-        placeholder="Password"
-        type="password"
-        value={password}
-        onChange={handelPassword}
-      />
-    </label>
-    <Submit>
-      <MainButton type="submit">Sign Up</MainButton>
-    </Submit>
-  </ModalForm>
-  <LinkModal>
-    Already have an account?{" "}
-    <a href="/" onClick={handleOpenSecondModal}>
-      Log In
-    </a>
-  </LinkModal> 
-</>
-   
-)
+  const handleOpenThirdmodal = () => {
+    setIsThirdModalOpen(true);
+  };
+
+  const handleCloseThirdmodal = () => {
+    setIsThirdModalOpen(false);
+  };
+
+  useEffect(() => {
+    const userNameFromStorage = localStorage.getItem('userName');
+    if (userNameFromStorage) {
+      
+      setUserLoggedIn(true);
+    }
+  }, []);
+
+  
+
+  
+  
+
+  const handlelogOut = () => {
+    setLogOut(true);
+    setUserLoggedIn(false);
+  };
+
+  const handlelogOutFalse = () => {
+    setLogOut(false);
+  };
+
+  const handelSubmit = (e) => {
+    e.preventDefault();
+    const existingUserJSON = localStorage.getItem('user');
+    let existingUser = {};
+
+    if (existingUserJSON) {
+      existingUser = JSON.parse(existingUserJSON);
+    }
+
+    existingUser[userData.userName] = [userData.userName, userData.email, userData.password];
+
+    localStorage.setItem('user', JSON.stringify(existingUser));
+
+    handleCloseModal();
+
+    localStorage.setItem('userName', userData.userName);
+    setUserLoggedIn(true);
+  };
+
+  const handleLogInSubmit = (e) => {
+    e.preventDefault();
+    console.log('dgv');
+    const existingUserJSON = localStorage.getItem('user');
+    if (existingUserJSON) {
+      const existingUser = JSON.parse(existingUserJSON);
+      if (existingUser[logInUserData.logInUserName] && existingUser[logInUserData.logInUserName][2] === logInUserData.logInPassword) {
+        toast.success('You are logged in', {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          });
+        setUserLoggedIn(true);
+        handleCloseSecondModal();
+      } else {
+        toast.error('Username or password entered incorrectly!', {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          });
+      }
+    } 
+  };
+  
+const getUserDataState = ({userName, password,email})=>{
+
+  if (!{userName, password,email}) {
+    return
+  }
+  
+    setUserData({userName, password,email})
+  
+
 }
+
+const getLogInUserData = ({logInUserName, logInPassword})=> {
+setLogInUserData({logInUserData, logInPassword})
+}
+  return (
+    <HeaderElement>
+      <Container>
+
+
+   
+      <HeaderNav>
+        <a href="/"><Headerlogo src={logo} alt="Logo" /></a>
+        <HeaderNavigation>
+          <li><p>Who we are</p></li>
+          <li><p>Contacts</p></li>
+          <li><p>Menu</p></li>
+        </HeaderNavigation>
+        <SingUl>
+        {userLoggedIn ? (
+  <>
+    <p>{userData.userName}</p>
+   
+  </>
+) : (
+  <>
+    <MainButton onClick={handleOpenSecondModal}>Log In</MainButton>
+    <MainButton type="button" onClick={handleOpenModal}>Sign Up</MainButton>
+  </>
+)}
+        </SingUl>
+        <Modal
+
+>
+  {isModalOpen && (
+    <FirstModal
+      handleCloseModal={handleCloseModal}
+      handelSubmit={handelSubmit}
+      handleOpenSecondModal={handleCloseSecondModal}
+      getUserDataState={getUserDataState}
+    />
+  )}
+  {isSecondModalOpen && (
+    <SecondModal
+      handleCloseSecondModal={handleCloseSecondModal}
+      handleLogInSubmit={handleLogInSubmit}
+      handleOpenModal={handleOpenModal}
+      getLogInUserData={getLogInUserData}
+    />
+  )}
+  {isThirdModalOpen && (
+    <ThirdModal
+      handleCloseThirdmodal={handleOpenThirdmodal}
+      handleOpenModal={handleOpenModal}
+      handleOpenSecondModal={handleOpenSecondModal}
+      handlelogOut={handlelogOut}
+    />
+  )}
+</Modal>
+
+
+
+
+
+
+        <BsPersonCircle  size={50} style={{ marginLeft: '1300px', marginTop: '-40px' }} />
+        <ToastContainer
+position="top-right"
+autoClose={5000}
+hideProgressBar={false}
+newestOnTop={false}
+closeOnClick
+rtl={false}
+pauseOnFocusLoss
+draggable
+pauseOnHover
+theme="light"
+/>
+{/* Same as */}
+<ToastContainer />
+      </HeaderNav>
+      </Container>
+    </HeaderElement>
+  );
+};

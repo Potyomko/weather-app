@@ -19,7 +19,7 @@ export const Modal = ({
   handlelogOut,
   handlelogOutFalse,
   handelPassword,
-  handleOverlayClick,
+ 
   userName,
   email,
   password,
@@ -37,7 +37,12 @@ export const Modal = ({
       handleCloseSecondModal();
     }
   };
-
+  function handleOverlayClick(e) {
+    if (e.currentTarget === e.target) {
+      handleCloseModal();
+      handleCloseSecondModal();
+    }
+  }
   useEffect(() => {
     window.addEventListener("keydown", handleKeydown);
     return () => {
