@@ -28,13 +28,13 @@ useEffect(() => {
         .then(data => setWeather(data))
         }
         
-//         console.log(myCity)
+        console.log(myCity)
         
-//         console.log(lat)
-//         console.log(lon)
-//     }
+        console.log(lat)
+        console.log(lon)
+    }
     
-// }, [theCity, lat, lon]);
+}, [theCity, lat, lon]);
 return(
     <>
     {console.log(weather)}
