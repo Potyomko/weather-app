@@ -13,6 +13,9 @@ import { Header } from "./Header/Header";
 import { WeekForecastLocationAPI } from "./WeatherForecastForWeek/WeatherForecastLocationAPI";
 import { MoreInfoList } from "./MoreInfo/MoreInfoList";
 import { MoreInfoChartComponent } from "./MoreInfo/MoreInfoChartComponent";
+import Weather from './WeatherCard/WeatherCard'
+import { useState } from "react";
+import { WhoWeAre } from "./WhoWeAre/WhoWeAre";
 
 export const App = () => {
   const [cityName, setCityName] = useState('')
@@ -20,19 +23,22 @@ export const App = () => {
     setCityName(city)
   }
   return (
+  console.log(cityName);
     <div>
       <Header />
-      <Hero />
-      <SomeInfo />
       <Hero getCityName={getCityName}/>
       <Weather cityName={cityName}/>
+      {console.log(<WeatherForecastForWeek/>)}
       {/* {console.log(<WeatherForecastForWeek/>)} */}
       {/* <WeekForecastLocationAPI theCity={'Kyiv'}/> */}
       <SomeInfo />
+      {console.log(<WeatherForecastForWeek/>)}
+      {/* <WeekForecastLocationAPI theCity={'New York'}/> */}
       <News/>
+      {/* <Gallery /> */}
+      <WhoWeAre/>
       <Footer/>
       <GlobalStyle/>
     </div>
   );
 };
-
