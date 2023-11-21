@@ -29,6 +29,8 @@ return (
       {/* {console.log(<WeatherForecastForWeek/>)} */}
       {/* <WeekForecastLocationAPI theCity={'Kyiv'}/> */}
       <SomeInfo />
+      {console.log(<WeatherForecastForWeek/>)}
+      {/* <WeekForecastLocationAPI theCity={'New York'}/> */}
       <News/>
       {/* <Gallery /> */}
       <WhoWeAre/>
