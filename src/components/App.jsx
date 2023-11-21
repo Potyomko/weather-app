@@ -24,6 +24,7 @@ export const App = () => {
 return (
     <div>
       <Header />
+
       <Hero getCityName={getCityName}/>
       {/* <Weather cityName={cityName}/> */}
       {console.log(<WeatherForecastForWeek/>)}
