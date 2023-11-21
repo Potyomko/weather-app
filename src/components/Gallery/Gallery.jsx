@@ -16,39 +16,41 @@ import Nature5 from '../../img/Nature5.jpg'
 export default function Gallery(){
 
     return(
-        <Container>
-            <Title>Beautiful nature</Title>
-            <Swiper
-                effect={'coverflow'}
-                grabCursor={true}
-                centeredSlides={true}
-                loop={true}
-                slidesPerView={'auto'}
-                coverflowEffect={{
-                rotate: 0,
-                stretch: 0,
-                depth: 100,
-                modifier: 2.5,
-                }}
-                modules={[EffectCoverflow, Pagination, Navigation]}
-                className="swiper_container"
-            >
-                <SwiperSlide>
-                    <Image src={Nature1} alt="slide_image" />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <Image src={Nature2} alt="slide_image" />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <Image src={Nature3} alt="slide_image" />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <Image src={Nature4} alt="slide_image" />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <Image src={Nature5} alt="slide_image" />
-                </SwiperSlide>
-            </Swiper>
-        </Container>
+        <section>
+            <Container>
+                <Title>Beautiful nature</Title>
+                <Swiper
+                    effect={'coverflow'}
+                    grabCursor={true}
+                    centeredSlides={true}
+                    loop={true}
+                    slidesPerView={'auto'}
+                    coverflowEffect={{
+                    rotate: 0,
+                    stretch: 0,
+                    depth: 100,
+                    modifier: 2.5,
+                    }}
+                    modules={[EffectCoverflow, Pagination, Navigation]}
+                    className="swiper_container"
+                >
+                    <SwiperSlide>
+                        <Image src={Nature1} alt="slide_image" />
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <Image src={Nature2} alt="slide_image" />
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <Image src={Nature3} alt="slide_image" />
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <Image src={Nature4} alt="slide_image" />
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <Image src={Nature5} alt="slide_image" />
+                    </SwiperSlide>
+                </Swiper>
+            </Container>
+        </section>
     )
 }

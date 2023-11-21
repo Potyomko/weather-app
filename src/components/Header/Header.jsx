@@ -22,7 +22,7 @@ export const Header = () => {
   const [userData, setUserData] = useState(null)
   const [logInUserData, setLogInUserData] = useState(null)
 
-
+  
   const handleOpenModal = (e) => {
     e.preventDefault();
     setModalOpen(true);
@@ -79,7 +79,7 @@ export const Header = () => {
   
 
   const handleLogInSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault()
     
     const existingUserJSON = localStorage.getItem('user');
     if (existingUserJSON) {
@@ -123,6 +123,23 @@ const getUserDataState = ({userName, password,email})=>{
 const getLogInUserData = ({logInUserName, logInPassword}) => {
   setLogInUserData({logInUserName, logInPassword});
 }
+
+    console.log('dgv');
+    const existingUserJSON = localStorage.getItem('user');
+    if (existingUserJSON) {
+      const existingUser = JSON.parse(existingUserJSON);
+      if (existingUser[logInUserName] && existingUser[logInUserName][2] === logInPassword) {
+        
+        setUserLoggedIn(true);
+        handleCloseSecondModal();
+      } else {
+alert('неправельні дані')
+      }
+    } 
+  };
+  
+
+
   return (
     <HeaderElement>
       <Container>   
@@ -137,6 +154,7 @@ const getLogInUserData = ({logInUserName, logInPassword}) => {
         {userLoggedIn ? (
   <>
     <p>{userData.userName}</p>
+    <p>{userName}</p>
    
   </>
 ) : (
@@ -145,6 +163,7 @@ const getLogInUserData = ({logInUserName, logInPassword}) => {
     <MainButton type="button" onClick={handleOpenModal}>Sign Up</MainButton>
   </>
 )}
+
         </SingUl>       
   {isModalOpen && (
      <Modal>
@@ -192,6 +211,36 @@ theme="light"
 />
 {/* Same as */}
 <ToastContainer />
+        </SingUl>
+        <Modal
+          isModalOpen={isModalOpen}
+          isSecondModalOpen={isSecondModalOpen}
+          isThirthModalOpen={isThirdModalOpen}
+          handleCloseModal={handleCloseModal}
+          handleCloseSecondModal={handleCloseSecondModal}
+          handleOpenSecondModal={handleOpenSecondModal}
+          handleOpenModal={handleOpenModal}
+          handleCloseThirdmodal={handleCloseThirdmodal}
+          handelSubmit={handelSubmit}
+          handelUserName={handelUserName}
+          handelEmail={handelEmail}
+          handlelogOut={handlelogOut}
+          handlelogOutFalse={handlelogOutFalse}
+          handelPassword={handelPassword}
+          handleOverlayClick={handleOverlayClick}
+          userName={userName}
+          email={email}
+          password={password}
+          logOut={logOut}
+          userLoggedIn={userLoggedIn}
+          handleLogInUserName={handleLogInUserName}
+          handleLogInPassword={handleLogInPassword}
+          handleLogInSubmit={handleLogInSubmit}
+          logInUserName={logInUserName}
+          logInPassword={logInPassword}
+        />
+        <BsPersonCircle onClick={handleOpenThirdmodal} size={50} style={{ marginLeft: '1300px', marginTop: '-40px' }} />
+
       </HeaderNav>
       </Container>
     </HeaderElement>

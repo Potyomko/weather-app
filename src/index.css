@@ -9,8 +9,3 @@
   height: 211px;
   position: relative;
 }
-
-.swiper-slide-shadow-left,
-.swiper-slide-shadow-right {
-  display: none;
-}

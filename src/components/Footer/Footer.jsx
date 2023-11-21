@@ -8,6 +8,7 @@ import Logo from '../../img/logo.svg';
 export const Footer = () => {
     return (
         <FooterSection>
+            {/* <Container> */}
             <FooterIconLogoDiv>
                 <img src={Logo} alt="Logo" />
             </FooterIconLogoDiv>
@@ -24,7 +25,8 @@ export const Footer = () => {
                         <FooterIconFacebook src={Facebook} alt="facebook" />
                         <FooterIconWhatsapp src={Whatsapp} alt="whatsapp" />
                     </FooterIconsDiv>
-            </FooterContactUsDiv>
+                </FooterContactUsDiv>
+            {/* </Container> */}
         </FooterSection>
     )
 }

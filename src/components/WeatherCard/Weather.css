@@ -1,0 +1,215 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+
+
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+input,
+button,
+select,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+.container {
+  width: 320px;
+  height: 430px;
+  background-color: #e8e8e8;
+  border-radius: 20px;
+  padding-top: 15px;
+  padding-right: 30px;
+  padding-left: 30px;
+  margin-left: 90px;
+  display: flex;
+}
+
+.first-floor {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.block {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 150px;
+}
+
+.city {
+  margin-right: 98px;
+}
+
+.btn {
+  padding: 8px 18px;
+  border-radius: 10px;
+  background: #ffb36c;
+  border: none;
+  margin-left: 103px;
+  margin-right: 103px;
+  white-space: nowrap;
+
+  color: #000;
+
+  text-align: right;
+  font-family: Montserrat;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+h2 {
+  color: #000;
+  text-align: center;
+
+  font-family: Montserrat;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  margin-bottom: 10px;
+}
+
+.second-floor {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+p {
+  color: #000;
+
+  font-family: Montserrat;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.date,
+.day {
+  color: #000;
+  font-family: Montserrat;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.date {
+  margin-right: 13px;
+  margin-left: 79px;
+}
+
+.day {
+  padding-left: 13px;
+  border-left: solid #212121 1px;
+  margin-right: 103px;
+}
+
+ul {
+  margin-top: 15px;
+}
+
+h1 {
+  margin-top: 15px;
+  text-align: center;
+  color: #000;
+  font-family: Montserrat;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.search-icon {
+  margin-top: 22px;
+  margin-bottom: 20px;
+}
+
+.last-floor {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.one {
+  margin-left: 20px;
+}
+
+.two {
+  margin-left: 16px;
+}
+
+.btn-1 {
+  padding: 8px 25px;
+  border-radius: 10px;
+  background: #ffb36c;
+  border: none;
+  margin-left: 38px;
+  white-space: nowrap;
+  margin-right: 37px;
+
+  color: #000;
+  text-align: right;
+  font-family: Montserrat;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.three {
+  margin-right: 20px;
+}
+
+
+.top-bar {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  padding-top: 60px;
+}
+
+.top-bar input {
+  display: flex;
+  width: 362px;
+  height: 78px;
+  background-color: #e8e8e8;
+}

@@ -32,8 +32,11 @@ export const HeroSection = styled.section`
 export const HeroH1 = styled.h1`
   color: ${props => props.theme.colors.white};
   font-family: ${props => props.theme.fonts.body};
+
 text-align: center;
  margin-bottom: 100px;
+  margin-left: 530px;
+ 
   @media screen and (min-width: 1200px){
     font-size: 48.76px;
 }
