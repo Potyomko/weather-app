@@ -106,50 +106,39 @@ export const FooterIconsDiv = styled.div`
     }
 `
 export const FooterIconInstagram = styled.img`
-    width: 40px;
-    height: 40px;
+    width: 60px;
+    height: 60px;
     padding-top: 10px;
     padding-right: 10px;
     padding-bottom: 10px;
-    @media screen and(max-width: 320px){
-        width: 35px;
-    }
+
 `
 export const FooterIconFacebook = styled.img`
-    width: 40px;
-    height: 40px;
+    width: 60px;
+    height: 60px;
     padding-top: 10px;
     padding-right: 10px;
     padding-left: 10px;
     padding-bottom: 10px;
-    @media screen and(max-width: 320px){
-        width: 35px;
-    }
 `
 export const FooterIconWhatsapp = styled.img`
-    width: 40px;
-    height: 40px;
+    width: 60px;
+    height: 60px;
     padding-top: 10px;
     padding-right: 10px;
     padding-left: 10px;
     padding-bottom: 10px;
-    @media screen and(max-width: 320px){
-        width: 35px;
-    }
 `
 export const FooterIconLogoDiv = styled.div`
     padding: 40px 150px 77px 103px;
-    width: 90px;
+    width: 343px;
     @media screen and (max-width: 320px){
         padding: 20px 0px 0px 21px;
-        width: 50px;
     }
     @media screen and (min-width: 768px){
-        width: 58px;
         padding: 35px 100px 63px 100px;
     }
     @media screen and (min-width: 1200px){
-        width: 90px;
         padding: 40px 150px 77px 103px;
     }
 `

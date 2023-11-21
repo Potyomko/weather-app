@@ -1,13 +1,15 @@
 import { useState } from 'react';
 import { MoreInfoList } from "../MoreInfo/MoreInfoList";
 import { MoreInfoChartComponent } from "../MoreInfo/MoreInfoChartComponent";
+import { WeatherForecastForWeek } from '../WeatherForecastForWeek/WeatherForecastForWeek'
+import { WeekForecastLocationAPI } from 'components/WeatherForecastForWeek/WeatherForecastLocationAPI';
 
 export const SomeInfo = () => {
-    const [city, setCity] = useState('London');
+    const [city, setCity] = useState('New York');
     // London тут лише для того, щоб перевірити справність коду, надалі тут буде null
     const [seeMore, setSeeMore] = useState(false);
     const [hourlyForecast, setHourlyForecast] = useState(false);
-    const [weeklyForecast, setWeeklyForecast] = useState(false);
+    const [weeklyForecast, setWeeklyForecast] = useState(true);
 
     const getInfo = (currentCity, options) => {
 
@@ -46,7 +48,7 @@ export const SomeInfo = () => {
          */}
         {seeMore && <MoreInfoList city={city} />}
         {hourlyForecast && <MoreInfoChartComponent city={city}/>}
-        {/* місце для компоненту Іллі */}
+        {weeklyForecast && <WeekForecastLocationAPI theCity={city}/>}
     </>
 
 }

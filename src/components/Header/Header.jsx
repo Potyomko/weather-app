@@ -17,7 +17,7 @@ export const Header = () => {
   const [password, setPassword] = useState('');
   const [logOut, setLogOut] = useState(false);
   const [userLoggedIn, setUserLoggedIn] = useState(false);
-
+  
   const handleOpenModal = (e) => {
     e.preventDefault();
     setModalOpen(true);
