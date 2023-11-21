@@ -8,13 +8,14 @@ import { useState } from 'react';
 import { WeekForecastLocationAPI } from 'components/WeatherForecastForWeek/WeatherForecastLocationAPI';
 
 
-export const Hero = () => {
+export const Hero = ({getCityName}) => {
   const [cityName, setCityName] = useState('');
   const [currentDay, setCurrentDay] = useState('');
 
   const handleSubmit = (values, { resetForm }) => {
     setCityName(values.cityName);
     resetForm();
+    getCityName(values.cityName)
   };
   
   const currentDate = new Date();
@@ -37,7 +38,7 @@ const currentMonth = months[currentDate.getMonth()];
   return (
     
     <HeroSection>
-  {console.log(cityName)}
+  {/* {console.log(cityName)} */}
 
       <HeroH1>Weather dashboard</HeroH1>
 
@@ -72,7 +73,6 @@ const currentMonth = months[currentDate.getMonth()];
         )}
       </Formik>
       <HeroAPI city={cityName} />
-      {/* <WeekForecastLocationAPI city={cityName}/> */}
     </HeroSection>
   );
 }
