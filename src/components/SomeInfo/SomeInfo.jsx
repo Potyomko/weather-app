@@ -5,7 +5,7 @@ import { WeatherForecastForWeek } from '../WeatherForecastForWeek/WeatherForecas
 import { WeekForecastLocationAPI } from 'components/WeatherForecastForWeek/WeatherForecastLocationAPI';
 
 export const SomeInfo = () => {
-    const [city, setCity] = useState('Kyiv');
+    const [city, setCity] = useState('New York');
     // London тут лише для того, щоб перевірити справність коду, надалі тут буде null
     const [seeMore, setSeeMore] = useState(false);
     const [hourlyForecast, setHourlyForecast] = useState(false);

@@ -16,10 +16,16 @@ export const App = () => {
   return (
     <div>
       <Header />
+<<<<<<< Updated upstream
       <Hero />
       <SomeInfo />
+=======
+      <Hero getCityName={getCityName}/>
+      <Weather cityName={cityName}/>
+>>>>>>> Stashed changes
       {/* {console.log(<WeatherForecastForWeek/>)} */}
-      {/* <WeekForecastLocationAPI theCity={'New York'}/> */}
+      {/* <WeekForecastLocationAPI theCity={'Kyiv'}/> */}
+      <SomeInfo />
       <News/>
       <Footer/>
       <GlobalStyle/>

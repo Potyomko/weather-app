@@ -6,7 +6,10 @@ export const WeekForecastLocationAPI = ({theCity}) => {
     const [lat, setLat] = useState('');
     const [lon, setLon] = useState('');
     const [weather, setWeather] = useState(''); 
+<<<<<<< Updated upstream
     const [cityName, setCityName] = useState('');
+=======
+>>>>>>> Stashed changes
 useEffect(() => {
     if(theCity){
         const myCity = JSON.parse(window.localStorage.getItem('cities')).find(oneCity => oneCity.name === theCity)
@@ -18,11 +21,15 @@ useEffect(() => {
         .then(data => setWeather(data))
         }
         
+<<<<<<< Updated upstream
         console.log(myCity)
         
         console.log(lat)
         console.log(lon)
     }
+=======
+}
+>>>>>>> Stashed changes
     
 }, [theCity, lat, lon]);
 return(
