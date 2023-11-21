@@ -27,12 +27,12 @@ export const App = () => {
       <Hero getCityName={getCityName}/>
       <Weather cityName={cityName}/>
       {console.log(<WeatherForecastForWeek/>)}
-      <WeekForecastLocationAPI theCity={'New York'}/>
+      {/* <WeekForecastLocationAPI theCity={'New York'}/> */}
       {/* <News/> */}
       <SomeInfo />
       {/* {console.log(<WeatherForecastForWeek/>)} */}
       {/* <WeekForecastLocationAPI theCity={'New York'}/> */}
-      <News/>
+      {/* <News/> */}
       <Footer/>
       <GlobalStyle/>
     </div>

@@ -48,7 +48,7 @@ export const SomeInfo = () => {
          */}
         {seeMore && <MoreInfoList city={city} />}
         {hourlyForecast && <MoreInfoChartComponent city={city}/>}
-        {weeklyForecast && <WeekForecastLocationAPI theCity={city}/>}
+        {/* {weeklyForecast && <WeekForecastLocationAPI theCity={city}/>} */}
     </>
 
 }
