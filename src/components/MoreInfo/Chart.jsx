@@ -29,7 +29,7 @@ export const hourlyOwercast = (hourly, setOptions, setData) => {
     },
     title: {
       display: true,
-      text: 'Hourly forecast',
+      text: '       Hourly forecast',
       position: 'top',
       align: 'start',
       padding: 20
