@@ -33,6 +33,7 @@ useEffect(() => {
         console.log(lat)
         console.log(lon)
     }
+}
     
 }, [theCity, lat, lon]);
 return(

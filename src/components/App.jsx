@@ -24,15 +24,11 @@ export const App = () => {
 return (
     <div>
       <Header />
-
       <Hero getCityName={getCityName}/>
-      {/* <Weather cityName={cityName}/> */}
-      {console.log(<WeatherForecastForWeek/>)}
-      <WeekForecastLocationAPI theCity={'New York'}/>
-      {/* <News/> */}
-      <SomeInfo />
+      <Weather cityName={cityName}/>
       {/* {console.log(<WeatherForecastForWeek/>)} */}
-      {/* <WeekForecastLocationAPI theCity={'New York'}/> */}
+      {/* <WeekForecastLocationAPI theCity={'Kyiv'}/> */}
+      <SomeInfo />
       <News/>
       {/* <Gallery /> */}
       <WhoWeAre/>
