@@ -4,19 +4,24 @@ import { BsPersonCircle } from 'react-icons/bs';
 import { HeaderNav, HeaderNavigation, HeaderElement, SingUl, Headerlogo } from './Header.styled';
 import { MainButton } from '../Button/Button';
 import { Modal } from './Modal';
-
+import { Container } from 'GlobalStyle';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { FirstModal } from './FirstModal';
+import { SecondModal } from './SecondModal';
+import { ThirdModal } from './ThirdModal';
 export const Header = () => {
   const [isSignUpModal, setIsSignUpModal] = useState(false);
   const [isModalOpen, setModalOpen] = useState(false);
   const [isSecondModalOpen, setSecondModalOpen] = useState(false);
   const [isThirdModalOpen, setIsThirdModalOpen] = useState(false);
-  const [userName, setUserName] = useState('');
-  const [email, setEmail] = useState('');
-  const [logInUserName, setLogInUserName] = useState('');
-  const [logInPassword, setLogInPassword] = useState('');
-  const [password, setPassword] = useState('');
+  
+  
   const [logOut, setLogOut] = useState(false);
   const [userLoggedIn, setUserLoggedIn] = useState(false);
+  const [userData, setUserData] = useState(null)
+  const [logInUserData, setLogInUserData] = useState(null)
+
   
   const handleOpenModal = (e) => {
     e.preventDefault();
@@ -50,39 +55,17 @@ export const Header = () => {
   };
 
   useEffect(() => {
-    const userNameFromStorage = localStorage.getItem('userName');
+    const userNameFromStorage = JSON.parse(localStorage.getItem('user'));
     if (userNameFromStorage) {
-      setUserName(userNameFromStorage);
+      setUserData(userNameFromStorage)
       setUserLoggedIn(true);
     }
   }, []);
 
-  function handleOverlayClick(e) {
-    if (e.currentTarget === e.target) {
-      handleCloseModal();
-      handleCloseSecondModal();
-    }
-  }
+  
 
-  const handelUserName = (e) => {
-    setUserName(e.currentTarget.value);
-  };
-
-  const handelEmail = (e) => {
-    setEmail(e.currentTarget.value);
-  };
-
-  const handelPassword = (e) => {
-    setPassword(e.currentTarget.value);
-  };
-
-  const handleLogInUserName = (e) => {
-    setLogInUserName(e.currentTarget.value);
-  };
-
-  const handleLogInPassword = (e) => {
-    setLogInPassword(e.currentTarget.value);
-  };
+  
+  
 
   const handlelogOut = () => {
     setLogOut(true);
@@ -93,27 +76,54 @@ export const Header = () => {
     setLogOut(false);
   };
 
-  const handelSubmit = (e) => {
-    e.preventDefault();
-    const existingUserJSON = localStorage.getItem('user');
-    let existingUser = {};
-
-    if (existingUserJSON) {
-      existingUser = JSON.parse(existingUserJSON);
-    }
-
-    existingUser[userName] = [userName, email, password];
-
-    localStorage.setItem('user', JSON.stringify(existingUser));
-
-    handleCloseModal();
-
-    localStorage.setItem('userName', userName);
-    setUserLoggedIn(true);
-  };
+  
 
   const handleLogInSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault()
+    
+    const existingUserJSON = localStorage.getItem('user');
+    if (existingUserJSON) {
+      const existingUser = JSON.parse(existingUserJSON);
+  
+
+      if (existingUser.password === logInUserData.logInPassword && existingUser.userName === logInUserData.logInUserName) {
+        console.log(existingUser.password, existingUser.userName, logInUserData.logInPassword );
+        toast.success('You are logged in', {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+        setUserLoggedIn(true);
+        handleCloseSecondModal();
+      } else {
+         console.log(existingUser.password && existingUser.userName === logInUserData.logInPassword && logInUserData.logInUserName);
+        toast.error('Username or password entered incorrectly!', {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+      }
+    }
+  };
+  
+const getUserDataState = ({userName, password,email})=>{  
+    setUserData({userName, password,email})
+}
+
+const getLogInUserData = ({logInUserName, logInPassword}) => {
+  setLogInUserData({logInUserName, logInPassword});
+}
+
     console.log('dgv');
     const existingUserJSON = localStorage.getItem('user');
     if (existingUserJSON) {
@@ -129,8 +139,10 @@ alert('неправельні дані')
   };
   
 
+
   return (
     <HeaderElement>
+      <Container>   
       <HeaderNav>
         <a href="/"><Headerlogo src={logo} alt="Logo" /></a>
         <HeaderNavigation>
@@ -141,6 +153,7 @@ alert('неправельні дані')
         <SingUl>
         {userLoggedIn ? (
   <>
+    <p>{userData.userName}</p>
     <p>{userName}</p>
    
   </>
@@ -150,6 +163,54 @@ alert('неправельні дані')
     <MainButton type="button" onClick={handleOpenModal}>Sign Up</MainButton>
   </>
 )}
+
+        </SingUl>       
+  {isModalOpen && (
+     <Modal>
+    <FirstModal
+      handleCloseModal={handleCloseModal}
+      setUserLoggedIn={setUserLoggedIn}
+      handleOpenSecondModal={handleOpenSecondModal}
+      getUserData={getUserDataState}
+    />
+    </Modal>
+  )}
+  {isSecondModalOpen && (
+    <Modal>
+    <SecondModal
+      handleCloseSecondModal={handleCloseSecondModal}
+      handleLogInSubmit={handleLogInSubmit}
+      handleOpenModal={handleOpenModal}
+      getLogInUserData={getLogInUserData}
+    />
+    </Modal>
+  )}
+  {isThirdModalOpen && (
+    <Modal>
+    <ThirdModal
+      handleCloseThirdmodal={handleCloseThirdmodal}
+      handleOpenModal={handleOpenModal}
+      handleOpenSecondModal={handleOpenSecondModal}
+      handlelogOut={handlelogOut}
+      userLoggedIn={userLoggedIn}
+    />
+    </Modal>
+  )}
+        <BsPersonCircle  size={50} style={{ marginLeft: '1300px', marginTop: '-40px' }} onClick={handleOpenThirdmodal}/>
+        <ToastContainer
+position="top-right"
+autoClose={5000}
+hideProgressBar={false}
+newestOnTop={false}
+closeOnClick
+rtl={false}
+pauseOnFocusLoss
+draggable
+pauseOnHover
+theme="light"
+/>
+{/* Same as */}
+<ToastContainer />
         </SingUl>
         <Modal
           isModalOpen={isModalOpen}
@@ -179,7 +240,9 @@ alert('неправельні дані')
           logInPassword={logInPassword}
         />
         <BsPersonCircle onClick={handleOpenThirdmodal} size={50} style={{ marginLeft: '1300px', marginTop: '-40px' }} />
+
       </HeaderNav>
+      </Container>
     </HeaderElement>
   );
 };

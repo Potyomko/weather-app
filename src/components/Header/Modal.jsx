@@ -1,35 +1,15 @@
 import React, { useEffect } from 'react';
-import { Overlay, Modalp, ModalH1, ModalUserName, ModalEmail, ModalPassword, ModalForm, Submit, LinkModal, LinkModalSecond } from './Header.styled';
-import { MainButton } from '../Button/Button';
-import { AiOutlineClose } from "react-icons/ai";
-import { P } from 'components/WeatherForecastForWeek/WeatherForecastForWeek.styled';
+import { Overlay, Modalp,  } from './Header.styled';
 
 export const Modal = ({
-  isModalOpen,
-  isSecondModalOpen,
-  isThirthModalOpen,
+  
   handleCloseModal,
   handleCloseSecondModal,
-  handleOpenSecondModal,
-  handleCloseThirdmodal,
-  handleOpenModal,
-  handelSubmit,
-  handelUserName,
-  handelEmail,
-  handlelogOut,
-  handlelogOutFalse,
-  handelPassword,
-  handleOverlayClick,
+  
+ 
   userName,
-  email,
-  password,
-  logOut,
-  userLoggedIn,
-  handleLogInUserName,
-  handleLogInPassword ,
-  handleLogInSubmit,
-  logInUserName,
-  logInPassword,
+  
+  children
 }) => {
   const handleKeydown = (e) => {
     if (e.key === "Escape") {
@@ -37,7 +17,12 @@ export const Modal = ({
       handleCloseSecondModal();
     }
   };
-
+  function handleOverlayClick(e) {
+    if (e.currentTarget === e.target) {
+      handleCloseModal();
+      handleCloseSecondModal();
+    }
+  }
   useEffect(() => {
     window.addEventListener("keydown", handleKeydown);
     return () => {
@@ -49,63 +34,13 @@ export const Modal = ({
 
   return (
     <>
-      {isModalOpen && (
+      
         <Overlay onClick={handleOverlayClick}>
           <Modalp>
-            <AiOutlineClose
-              size={25}
-              onClick={handleCloseModal}
-              style={{ marginLeft: '570px' }}
-            />
-            <ModalH1>Sign Up</ModalH1>
-            <ModalForm onSubmit={handelSubmit}>
-              <label htmlFor="username">
-                Username
-                <ModalUserName
-                  placeholder="Username"
-                  id="username"
-                  type="text"
-                  value={userName}
-                  onChange={handelUserName}
-                />
-              </label>
-              <label htmlFor="email">
-                E-mail
-                <ModalEmail
-                  id="email"
-                  placeholder="E-mail"
-                  type="email"
-                  value={email}
-                  onChange={handelEmail}
-                />
-              </label>
-              <label htmlFor="password">
-                Password
-                <ModalPassword
-                  id="password"
-                  placeholder="Password"
-                  type="password"
-                  value={password}
-                  onChange={handelPassword}
-                />
-              </label>
-              <Submit>
-                <MainButton type="submit">Sign Up</MainButton>
-              </Submit>
-            </ModalForm>
-            <LinkModal>
-              Already have an account?{" "}
-              <a href="/" onClick={handleOpenSecondModal}>
-                Log In
-              </a>
-            </LinkModal>
+          {children}
           </Modalp>
         </Overlay>
-      )}
-
-      {isSecondModalOpen && (
-        <Overlay onClick={handleOverlayClick}>
-          <Modalp>
+    
             <AiOutlineClose
               size={25}
               onClick={handleCloseSecondModal}

@@ -6,8 +6,8 @@ const desktop = 1200;
 export const HeroSection = styled.section`
   background-color: #2f303a;
 
-  padding-bottom: 100px;
-  padding-top: 100px;
+  padding-bottom: 170px;
+  padding-top: 170px;
 
   @media screen and (min-width: ${desktop}){
     height: 500px;
@@ -32,6 +32,9 @@ export const HeroSection = styled.section`
 export const HeroH1 = styled.h1`
   color: ${props => props.theme.colors.white};
   font-family: ${props => props.theme.fonts.body};
+
+text-align: center;
+ margin-bottom: 100px;
   margin-left: 530px;
  
   @media screen and (min-width: 1200px){
@@ -62,8 +65,7 @@ export const HeroText = styled.p`
   font-family: ${props => props.theme.fonts.body};
  
 
-margin-left: 450px;
-margin-top: 100px;
+
 
 font-weight: 500;
 
@@ -90,8 +92,6 @@ export const HeroData = styled.p`
 color: ${props => props.theme.colors.white};
 font-family: ${props => props.theme.fonts.body};
 
-margin-left: 880px;
-margin-top: -90px;
 
 
 @media screen and (min-width: 1200px){
@@ -124,6 +124,7 @@ export const HeroSubmit = styled.button`
   border-radius: 0px 10px 10px 0px; 
   border: 0 0 0 2px; 
 
+
 `;
 export const HeroSpan = styled.span`
   width: 144px;
@@ -131,8 +132,53 @@ export const HeroSpan = styled.span`
   background-color: ${props => props.theme.colors.white};
   display: inline-block;
   transform: rotate(-90deg);
-  position: absolute;
+  
 
-  left: 780px;
-  margin-top: -30px;
+  
 `;
+
+
+export const ContainerText = styled.div`
+
+display:flex;
+margin-bottom: 100px;
+justify-content: center;
+text-aling: center;
+`
+
+export const Field = styled.input`
+  background: #D9D9D9;
+  border-radius: 10px;
+  border: none;
+  
+
+  @media screen and (max-width: 767px) {
+    width: 157px;
+    height: 14px;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 402px;
+    height: 27px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    width: 625px;
+    height: 42px;
+  }
+`;
+
+
+
+
+
+
+
+
+export const TextContainer = styled.div`
+margin-bottom: 100px;
+display: flex;
+align-items: center; 
+justify-content: center;
+
+`

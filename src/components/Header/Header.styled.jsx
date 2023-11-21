@@ -17,7 +17,10 @@ height: 80px;
 `
 export const HeaderNavigation = styled.ul`
   display: flex;
-  margin-left: 400px;
+justify-content: center;
+align-items: center; 
+
+
   margin-top: -40px;
 
   & > li:not(:last-child) {
