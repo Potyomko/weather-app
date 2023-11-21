@@ -1,10 +1,12 @@
-export const NewsItem = ({img, description}) => {
+import { NewsImage } from "./News.styled"
+
+export const NewsItem = ({ img, description }) => {
     return (
         <>
-                <img src={img} alt="news" />
+                <NewsImage src={img} alt="news" width={270} />
             <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, nostrum?
-                {/* {description} */}
+                {/* Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, nostrum? */}
+                {description}
             </p>
         </>
     )
