@@ -26,6 +26,9 @@ return (
       <Header />
       <Hero getCityName={getCityName}/>
       <Weather cityName={cityName}/>
+      {console.log(<WeatherForecastForWeek/>)}
+      {/* <WeekForecastLocationAPI theCity={'New York'}/> */}
+      {/* <News/> */}
       {/* {console.log(<WeatherForecastForWeek/>)} */}
       {/* <WeekForecastLocationAPI theCity={'Kyiv'}/> */}
       <SomeInfo />

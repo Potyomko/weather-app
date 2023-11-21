@@ -47,6 +47,7 @@ textarea {
   padding-right: 30px;
   padding-left: 30px;
   margin-left: 90px;
+  display: flex;
 }
 
 .first-floor {

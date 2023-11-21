@@ -30,6 +30,9 @@ useEffect(() => {
         
         console.log(myCity)
         
+//         console.log(lat)
+//         console.log(lon)
+    }
         console.log(lat)
         console.log(lon)
     }
@@ -41,7 +44,7 @@ return(
     {console.log(weather)}
     {/* {window.localStorage.setItem('Latitude', JSON.stringify.lat)}
     {window.localStorage.setItem('Longtitude', JSON.stringify.lon)} */}
-    {/* {weather && <WeatherForecastForWeek theWeather={weather}/>} */}
+    {weather && <WeatherForecastForWeek theWeather={weather}/>}
     {/* {cityName && <p>{cityName.name}</p>} */}
     </>
 )

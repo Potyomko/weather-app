@@ -20,35 +20,30 @@ const Weather = ({cityName}) => {
     }
   }, [cityName]);
 
-  // useEffect(() => {
-  //   localStorage.setItem('cities', JSON.stringify(cities));
-  // }, [cities]);
+// Функція для перетворення часу в норм формат
+  const formatTime = timestamp => {
+    const date = new Date(timestamp * 1000);
+    const hours = date.getHours().toString().padStart(2, '0');
+    const minutes = date.getMinutes().toString().padStart(2, '0');
+    return `${hours}:${minutes}`;
+  };
 
-  
-// // ============================================================================================
-  // const addCity = async () => {
-  //   try {
-  //     const response = await axios.get(
-  //       `https://api.openweathermap.org/data/2.5/weather?q=${newCity}&appid=${apiKey}`
-  //     );
-  //     const additionalInfo = await axios.get(
-  //       `https://restcountries.com/v2/alpha/${response.data.sys.country}`
-  //     );
-  //     const newCityData = {
-  //       name: response.data.name,
-  //       temperature: response.data.main.temp,
-  //       country: additionalInfo.data.name,
-  //       time: new Date().toLocaleTimeString(),
-  //       day: new Date().toLocaleDateString('en-US', { weekday: 'long' }),
-  //       date: new Date().toLocaleDateString('en-US'),
-  //     };
-  //     setCities([...cities, newCityData]);
-  //     setNewCity('');
-  //   } catch (error) {
-  //     console.error('Error adding city:', error);
-  //   }
-  // };
-// ============================================================================================
+
+  // Функція для форматування дати в норм формат
+// const formatDate = timestamp => {
+//   const date = new Date(timestamp * 1000);
+//   const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+//   return date.toLocaleDateString('en-US', options);
+// };
+
+const formatDate = timestamp => {
+  const date = new Date(timestamp * 1000);
+  const day = date.getDate().toString().padStart(2, '0');
+  const month = (date.getMonth() + 1).toString().padStart(2, '0');
+  const year = date.getFullYear();
+  return `${day}.${month}.${year}`;
+};
+
   const removeCity = cityIndex => {
     const newCities = [...cities];
     newCities.splice(cityIndex, 1);
@@ -82,32 +77,30 @@ const Weather = ({cityName}) => {
 
   return (
     <>
-      {/* <input type="text" value={newCity} onChange={e => setNewCity(e.target.value)} placeholder="Введіть назву міста"/>
-      <button onClick={addCity}>Додати місто</button> */}
       {cities.length > 0 ? ( 
       <div className="container">
         {cities.map((city, index) => (
           <div key={index}>
             <div className="first-floor">
               <p className="city">{city.name}</p>
-              <p>{city.country}</p>
+              <p>{city.sys.country}</p>
             </div>
 
             <div className="second-floor">
-              <h2>{city.time}</h2>
+              <h2>{formatTime(city.dt)}</h2>
               <button className="btn">Hourly forecast</button>
             </div>
 
             <ul className="list">
               <li className="item">
-                <p className="date">{city.date}</p>
-                <p className="day">{city.day}</p>
+                <p className="date">{formatDate(city.dt)}</p>
+                <p className="day">{new Date(city.dt * 1000).toLocaleDateString('en-US', { weekday: 'long' })}</p>
               </li>
             </ul>
 
             <div className="search-icon">
               <img src={Sun} alt="sun-icon" />
-              <h1>{city.temperature}°C</h1>
+              <h1>{city.main.temp}°C</h1>
             </div>
 
             <div className="last-floor">
