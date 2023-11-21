@@ -6,7 +6,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './Weather.css';
 
-const Weather = ({cityName}) => {
+export const Weather = ({cityName}) => {
   const [cities, setCities] = useState([]);
   const [newCity, setNewCity] = useState('');
   const apiKey = '7221ffa7ddfb4cd84a82a2da639f1f35';
@@ -116,4 +116,4 @@ const formatDate = timestamp => {
   );
 };
 
-export default Weather;
+
