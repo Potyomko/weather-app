@@ -22,7 +22,6 @@ export const Header = () => {
   const [userData, setUserData] = useState(null)
   const [logInUserData, setLogInUserData] = useState(null)
 
-console.log(userData);
 
   const handleOpenModal = (e) => {
     e.preventDefault();
@@ -183,14 +182,15 @@ setLogInUserData({logInUserData, logInPassword})
   {isThirdModalOpen && (
     <Modal>
     <ThirdModal
-      handleCloseThirdmodal={handleOpenThirdmodal}
+      handleCloseThirdmodal={handleCloseThirdmodal}
       handleOpenModal={handleOpenModal}
       handleOpenSecondModal={handleOpenSecondModal}
       handlelogOut={handlelogOut}
+      userLoggedIn={userLoggedIn}
     />
     </Modal>
   )}
-        <BsPersonCircle  size={50} style={{ marginLeft: '1300px', marginTop: '-40px' }} />
+        <BsPersonCircle  size={50} style={{ marginLeft: '1300px', marginTop: '-40px' }} onClick={handleOpenThirdmodal}/>
         <ToastContainer
 position="top-right"
 autoClose={5000}
