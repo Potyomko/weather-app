@@ -22,7 +22,7 @@ export const Header = () => {
   const [userData, setUserData] = useState(null)
   const [logInUserData, setLogInUserData] = useState(null)
 
-
+console.log(userData);
 
   const handleOpenModal = (e) => {
     e.preventDefault();
@@ -56,9 +56,9 @@ export const Header = () => {
   };
 
   useEffect(() => {
-    const userNameFromStorage = localStorage.getItem('userName');
+    const userNameFromStorage = JSON.parse(localStorage.getItem('user'));
     if (userNameFromStorage) {
-      
+      setUserData(userNameFromStorage)
       setUserLoggedIn(true);
     }
   }, []);
@@ -77,24 +77,24 @@ export const Header = () => {
     setLogOut(false);
   };
 
-  const handelSubmit = (e) => {
-    e.preventDefault();
-    const existingUserJSON = localStorage.getItem('user');
-    let existingUser = {};
+  // const handelSubmit = (e) => {
+  //   e.preventDefault();
+  //   const existingUserJSON = localStorage.getItem('user');
+  //   let existingUser = {};
 
-    if (existingUserJSON) {
-      existingUser = JSON.parse(existingUserJSON);
-    }
+  //   if (existingUserJSON) {
+  //     existingUser = JSON.parse(existingUserJSON);
+  //   }
 
-    existingUser[userData.userName] = [userData.userName, userData.email, userData.password];
+  //   existingUser[userData.userName] = [userData.userName, userData.email, userData.password];
 
-    localStorage.setItem('user', JSON.stringify(existingUser));
+  //   localStorage.setItem('user', JSON.stringify(existingUser));
 
-    handleCloseModal();
+  //   handleCloseModal();
 
-    localStorage.setItem('userName', userData.userName);
-    setUserLoggedIn(true);
-  };
+  //   localStorage.setItem('userName', userData.userName);
+  //   setUserLoggedIn(true);
+  // };
 
   const handleLogInSubmit = (e) => {
     e.preventDefault();
@@ -130,15 +130,8 @@ export const Header = () => {
     } 
   };
   
-const getUserDataState = ({userName, password,email})=>{
-
-  if (!{userName, password,email}) {
-    return
-  }
-  
+const getUserDataState = ({userName, password,email})=>{  
     setUserData({userName, password,email})
-  
-
 }
 
 const getLogInUserData = ({logInUserName, logInPassword})=> {
@@ -146,10 +139,7 @@ setLogInUserData({logInUserData, logInPassword})
 }
   return (
     <HeaderElement>
-      <Container>
-
-
-   
+      <Container>   
       <HeaderNav>
         <a href="/"><Headerlogo src={logo} alt="Logo" /></a>
         <HeaderNavigation>
@@ -169,41 +159,37 @@ setLogInUserData({logInUserData, logInPassword})
     <MainButton type="button" onClick={handleOpenModal}>Sign Up</MainButton>
   </>
 )}
-        </SingUl>
-        <Modal
-
->
+        </SingUl>       
   {isModalOpen && (
+     <Modal>
     <FirstModal
       handleCloseModal={handleCloseModal}
-      handelSubmit={handelSubmit}
+      setUserLoggedIn={setUserLoggedIn}
       handleOpenSecondModal={handleCloseSecondModal}
-      getUserDataState={getUserDataState}
+      getUserData={getUserDataState}
     />
+    </Modal>
   )}
   {isSecondModalOpen && (
+    <Modal>
     <SecondModal
       handleCloseSecondModal={handleCloseSecondModal}
       handleLogInSubmit={handleLogInSubmit}
       handleOpenModal={handleOpenModal}
       getLogInUserData={getLogInUserData}
     />
+    </Modal>
   )}
   {isThirdModalOpen && (
+    <Modal>
     <ThirdModal
       handleCloseThirdmodal={handleOpenThirdmodal}
       handleOpenModal={handleOpenModal}
       handleOpenSecondModal={handleOpenSecondModal}
       handlelogOut={handlelogOut}
     />
+    </Modal>
   )}
-</Modal>
-
-
-
-
-
-
         <BsPersonCircle  size={50} style={{ marginLeft: '1300px', marginTop: '-40px' }} />
         <ToastContainer
 position="top-right"

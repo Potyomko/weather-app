@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Overlay, Modalp, ModalH1, ModalUserName, ModalEmail, ModalPassword, ModalForm, Submit, LinkModal, LinkModalSecond } from './Header.styled';
 import { AiOutlineClose } from "react-icons/ai";
 import { MainButton } from '../Button/Button';
-export const FirstModal = ({handleCloseModal, handelSubmit,handleOpenSecondModal, getUserData})=>{
+export const FirstModal = ({handleCloseModal, setUserLoggedIn, handleOpenSecondModal, getUserData})=>{
 
     const [userName, setUserName] = useState('');
   const [email, setEmail] = useState('');
@@ -20,11 +20,29 @@ export const FirstModal = ({handleCloseModal, handelSubmit,handleOpenSecondModal
   const handelPassword = (e) => {
     setPassword(e.currentTarget.value);
   };
+  const handelSubmit = (e) => {
+    e.preventDefault();
+    const existingUserJSON = localStorage.getItem('user');
+    // let existingUser = {};
 
-  getUserData({userName, email, password})
+    if (!existingUserJSON) {
+      // existingUser = JSON.parse(existingUserJSON); 
+      localStorage.setItem('user', JSON.stringify({userName, email, password}));
+    }
+
+    // existingUser[userName] = {userName, email, password};
+
+   
+
+    handleCloseModal();
+
+    localStorage.setItem('userName', userName);
+    setUserLoggedIn(true);
+    getUserData({userName, email, password})
+  };
+  
 return(
 <>
-
 <AiOutlineClose
     size={25}
     onClick={handleCloseModal}
@@ -72,7 +90,6 @@ return(
       Log In
     </a>
   </LinkModal> 
-</>
-   
+</>   
 )
 }

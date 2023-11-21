@@ -30,6 +30,7 @@ export const Modal = ({
   handleLogInSubmit,
   logInUserName,
   logInPassword,
+  children
 }) => {
   const handleKeydown = (e) => {
     if (e.key === "Escape") {
@@ -57,7 +58,7 @@ export const Modal = ({
       {/* {isModalOpen && ( */}
         <Overlay onClick={handleOverlayClick}>
           <Modalp>
-          
+          {children}
           </Modalp>
         </Overlay>
       {/* )} */}
