@@ -101,7 +101,7 @@ export const Header = () => {
     const existingUserJSON = localStorage.getItem('user');
     if (existingUserJSON) {
       const existingUser = JSON.parse(existingUserJSON);
-      if (existingUser.logInUserName && existingUser.logInUserName === logInUserData.logInPassword) {
+      if (existingUser.password === logInUserData.logInPassword) {
         toast.success('You are logged in', {
           position: "top-right",
           autoClose: 5000,
