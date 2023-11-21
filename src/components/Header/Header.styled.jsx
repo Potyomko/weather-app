@@ -19,7 +19,10 @@ export const HeaderNavigation = styled.ul`
   display: flex;
 justify-content: center;
 align-items: center; 
-margin-top: -10px;
+
+
+  margin-top: -40px;
+
   & > li:not(:last-child) {
     margin-right: 30px;
   }

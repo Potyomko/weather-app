@@ -1,35 +1,14 @@
 import React, { useEffect } from 'react';
-import { Overlay, Modalp, ModalH1, ModalUserName, ModalEmail, ModalPassword, ModalForm, Submit, LinkModal, LinkModalSecond } from './Header.styled';
-import { MainButton } from '../Button/Button';
-import { AiOutlineClose } from "react-icons/ai";
-import { P } from 'components/WeatherForecastForWeek/WeatherForecastForWeek.styled';
+import { Overlay, Modalp,  } from './Header.styled';
 
 export const Modal = ({
-  isModalOpen,
-  isSecondModalOpen,
-  isThirthModalOpen,
+  
   handleCloseModal,
   handleCloseSecondModal,
-  handleOpenSecondModal,
-  handleCloseThirdmodal,
-  handleOpenModal,
-  handelSubmit,
-  handelUserName,
-  handelEmail,
-  handlelogOut,
-  handlelogOutFalse,
-  handelPassword,
+  
  
   userName,
-  email,
-  password,
-  logOut,
-  userLoggedIn,
-  handleLogInUserName,
-  handleLogInPassword ,
-  handleLogInSubmit,
-  logInUserName,
-  logInPassword,
+  
   children
 }) => {
   const handleKeydown = (e) => {
@@ -55,28 +34,13 @@ export const Modal = ({
 
   return (
     <>
-      {/* {isModalOpen && ( */}
+      
         <Overlay onClick={handleOverlayClick}>
           <Modalp>
           {children}
           </Modalp>
         </Overlay>
-      {/* )} */}
-
-      {/* {isSecondModalOpen && (
-        <Overlay onClick={handleOverlayClick}>
-          <Modalp>
-          
-          </Modalp>
-        </Overlay>
-      )}
- {isThirthModalOpen && (
-  <Overlay onClick={handleOverlayClick}>
-    <Modalp>
     
-    </Modalp>
-  </Overlay>
-)} */}
     </>
   );
 };

@@ -76,32 +76,18 @@ export const Header = () => {
     setLogOut(false);
   };
 
-  // const handelSubmit = (e) => {
-  //   e.preventDefault();
-  //   const existingUserJSON = localStorage.getItem('user');
-  //   let existingUser = {};
-
-  //   if (existingUserJSON) {
-  //     existingUser = JSON.parse(existingUserJSON);
-  //   }
-
-  //   existingUser[userData.userName] = [userData.userName, userData.email, userData.password];
-
-  //   localStorage.setItem('user', JSON.stringify(existingUser));
-
-  //   handleCloseModal();
-
-  //   localStorage.setItem('userName', userData.userName);
-  //   setUserLoggedIn(true);
-  // };
+  
 
   const handleLogInSubmit = (e) => {
     e.preventDefault();
-    console.log('dgv');
+    
     const existingUserJSON = localStorage.getItem('user');
     if (existingUserJSON) {
       const existingUser = JSON.parse(existingUserJSON);
-      if (existingUser.password === logInUserData.logInPassword) {
+  
+
+      if (existingUser.password === logInUserData.logInPassword && existingUser.userName === logInUserData.logInUserName) {
+        console.log(existingUser.password, existingUser.userName, logInUserData.logInPassword );
         toast.success('You are logged in', {
           position: "top-right",
           autoClose: 5000,
@@ -111,10 +97,11 @@ export const Header = () => {
           draggable: true,
           progress: undefined,
           theme: "light",
-          });
+        });
         setUserLoggedIn(true);
         handleCloseSecondModal();
       } else {
+         console.log(existingUser.password && existingUser.userName === logInUserData.logInPassword && logInUserData.logInUserName);
         toast.error('Username or password entered incorrectly!', {
           position: "top-right",
           autoClose: 5000,
@@ -124,17 +111,17 @@ export const Header = () => {
           draggable: true,
           progress: undefined,
           theme: "light",
-          });
+        });
       }
-    } 
+    }
   };
   
 const getUserDataState = ({userName, password,email})=>{  
     setUserData({userName, password,email})
 }
 
-const getLogInUserData = ({logInUserName, logInPassword})=> {
-setLogInUserData({logInUserData, logInPassword})
+const getLogInUserData = ({logInUserName, logInPassword}) => {
+  setLogInUserData({logInUserName, logInPassword});
 }
   return (
     <HeaderElement>
@@ -164,7 +151,7 @@ setLogInUserData({logInUserData, logInPassword})
     <FirstModal
       handleCloseModal={handleCloseModal}
       setUserLoggedIn={setUserLoggedIn}
-      handleOpenSecondModal={handleCloseSecondModal}
+      handleOpenSecondModal={handleOpenSecondModal}
       getUserData={getUserDataState}
     />
     </Modal>

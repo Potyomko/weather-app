@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Overlay, Modalp, ModalH1, ModalUserName, ModalEmail, ModalPassword, ModalForm, Submit, LinkModal, LinkModalSecond } from './Header.styled';
+
 import { AiOutlineClose } from "react-icons/ai";
 import { MainButton } from '../Button/Button';
 
@@ -14,14 +14,12 @@ export const ThirdModal = ({
     const [userStorage, setUserStorage] = useState(JSON.parse(localStorage.getItem('user')) || '')
     console.log(userLoggedIn);
     useEffect(()=>{
-      // setUserStorage(JSON.parse(localStorage.getItem('user')));
+    
       if(userStorage){
         setUserNameFromStorage(userStorage.userName)
       }
     },[])
-  //   const userStorage = JSON.parse(localStorage.getItem('user'));
-  //   console.log(userStorage)
-  // const userNameFromStorage = userStorage && userStorage.userName ? userStorage.userName : '';
+  
     return(
         <>
           <AiOutlineClose
