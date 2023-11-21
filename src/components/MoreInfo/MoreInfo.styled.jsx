@@ -40,7 +40,8 @@ background-color: ${({ theme }) => theme.colors.greyCards};
 border-radius: 20px;
 align-items: center;
 justify-content: center;
-
+min-height: 555px;
+padding: 10px;
 `
-// padding: 10px;
+
 // margin: 40px 150px;
