@@ -6,17 +6,19 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './Weather.css';
 
-export const Weather = ({cityName}) => {
+export const Weather = ({cityName, getInfo}) => {
   const [cities, setCities] = useState([]);
   const [newCity, setNewCity] = useState('');
   const apiKey = '7221ffa7ddfb4cd84a82a2da639f1f35';
   console.log(cityName);
-
+  
   useEffect(() => {
-    console.log(cityName);
+
     const storedCities = JSON.parse(localStorage.getItem('cities'));
+    console.log(storedCities);
     if (storedCities) {
-      setCities(storedCities);
+      console.log(cityName);
+      // setCities(storedCities);
     }
   }, [cityName]);
 
@@ -83,12 +85,13 @@ const formatDate = timestamp => {
           <div key={index}>
             <div className="first-floor">
               <p className="city">{city.name}</p>
-              <p>{city.sys.country}</p>
+              <p>{city.country}</p>
             </div>
 
             <div className="second-floor">
               <h2>{formatTime(city.dt)}</h2>
-              <button className="btn">Hourly forecast</button>
+              <button className="btn" onClick={getInfo(city.name, 'hourly forecast')}>Hourly forecast</button>
+              <button className="btn" onClick={getInfo(city.name, 'weekly forecast')}>Weekly forecast</button>
             </div>
 
             <ul className="list">
@@ -100,13 +103,13 @@ const formatDate = timestamp => {
 
             <div className="search-icon">
               <img src={Sun} alt="sun-icon" />
-              <h1>{city.main.temp}°C</h1>
+              <h1>{city.temp}°C</h1>
             </div>
 
             <div className="last-floor">
               <img className="one" src={Reflesh} alt="" onClick={() => updateWeather(index)}/>
               <img className="two" src={Heart} alt="" />
-              <button className="btn-1">See more</button>
+              <button className="btn-1" onClick={getInfo(city.name, 'see more')}>See more</button>
               <img className="three" src={Delete} alt="" onClick={() => removeCity(index)}/>
             </div>
           </div>
