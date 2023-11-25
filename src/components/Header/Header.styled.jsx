@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const HeaderNav = styled.div`
 position: relative;
-box-sizing: border-box;
+
 
 
 
@@ -17,10 +17,7 @@ height: 80px;
 `
 export const HeaderNavigation = styled.ul`
   display: flex;
-justify-content: center;
-align-items: center; 
-
-
+  margin-left: 400px;
   margin-top: -40px;
 
   & > li:not(:last-child) {

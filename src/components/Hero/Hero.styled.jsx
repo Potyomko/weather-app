@@ -35,7 +35,7 @@ export const HeroH1 = styled.h1`
 
 text-align: center;
  margin-bottom: 100px;
-  margin-left: 530px;
+
  
   @media screen and (min-width: 1200px){
     font-size: 48.76px;
