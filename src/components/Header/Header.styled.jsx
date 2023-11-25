@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const HeaderNav = styled.div`
 position: relative;
-box-sizing: border-box;
+
 
 
 
