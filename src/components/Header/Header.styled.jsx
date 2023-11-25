@@ -152,4 +152,3 @@ export const LinkModalSecond = styled.p`
 margin-left: 160px;
 margin-top: 80px;
 `
-

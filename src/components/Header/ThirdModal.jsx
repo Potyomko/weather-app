@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState, useEffect} from 'react';
 
 import { AiOutlineClose } from "react-icons/ai";
 import { MainButton } from '../Button/Button';

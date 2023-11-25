@@ -61,23 +61,26 @@ export const Header = () => {
       setUserLoggedIn(true);
     }
   }, []);
+  
+  
 
   const handlelogOut = () => {
     setLogOut(true);
     setUserLoggedIn(false);
   };
 
-  const handlelogOutFalse = () => {
-    setLogOut(false);
-  };
-
+  
+ 
   const handleLogInSubmit = (e) => {
     e.preventDefault()
     
     const existingUserJSON = localStorage.getItem('user');
     if (existingUserJSON) {
       const existingUser = JSON.parse(existingUserJSON);
+  
+
       if (existingUser.password === logInUserData.logInPassword && existingUser.userName === logInUserData.logInUserName) {
+        console.log(existingUser.password, existingUser.userName, logInUserData.logInPassword );
         toast.success('You are logged in', {
           position: "top-right",
           autoClose: 5000,
@@ -91,6 +94,7 @@ export const Header = () => {
         setUserLoggedIn(true);
         handleCloseSecondModal();
       } else {
+         console.log(existingUser.password && existingUser.userName === logInUserData.logInPassword && logInUserData.logInUserName);
         toast.error('Username or password entered incorrectly!', {
           position: "top-right",
           autoClose: 5000,
@@ -105,18 +109,20 @@ export const Header = () => {
     }
   };
   
-const getUserDataState = ({userName, password,email})=>{  
+  
+  const getUserDataState = ({userName, password,email})=>{  
     setUserData({userName, password,email})
 }
 
 const getLogInUserData = ({logInUserName, logInPassword}) => {
   setLogInUserData({logInUserName, logInPassword});
 }
-
-  
   return (
     <HeaderElement>
-      <Container>   
+      <Container>
+
+
+   
       <HeaderNav>
         <a href="/"><Headerlogo src={logo} alt="Logo" /></a>
         <HeaderNavigation>
@@ -127,7 +133,8 @@ const getLogInUserData = ({logInUserName, logInPassword}) => {
         <SingUl>
         {userLoggedIn ? (
   <>
-    <p>{userData.userName}</p>   
+    <p>{userData.userName}</p>
+   
   </>
 ) : (
   <>
@@ -135,9 +142,10 @@ const getLogInUserData = ({logInUserName, logInPassword}) => {
     <MainButton type="button" onClick={handleOpenModal}>Sign Up</MainButton>
   </>
 )}
+        </SingUl>
+        
 
-        </SingUl>       
-  {isModalOpen && (
+{isModalOpen && (
      <Modal>
     <FirstModal
       handleCloseModal={handleCloseModal}
@@ -168,22 +176,27 @@ const getLogInUserData = ({logInUserName, logInPassword}) => {
     />
     </Modal>
   )}
-        <BsPersonCircle  size={50} style={{ marginLeft: '1300px', marginTop: '-40px' }} onClick={handleOpenThirdmodal}/>
-        <ToastContainer
-              position="top-right"
-              autoClose={5000}
-              hideProgressBar={false}
-              newestOnTop={false}
-              closeOnClick
-              rtl={false}
-              pauseOnFocusLoss
-              draggable
-              pauseOnHover
-              theme="light"
-              />
-<ToastContainer />        
-        <BsPersonCircle onClick={handleOpenThirdmodal} size={50} style={{ marginLeft: '1300px', marginTop: '-40px' }} />
 
+
+
+
+
+
+        <BsPersonCircle onClick={handleOpenThirdmodal} size={50} style={{ marginLeft: '1300px', marginTop: '-40px' }} />
+        <ToastContainer
+position="top-right"
+autoClose={5000}
+hideProgressBar={false}
+newestOnTop={false}
+closeOnClick
+rtl={false}
+pauseOnFocusLoss
+draggable
+pauseOnHover
+theme="light"
+/>
+{/* Same as */}
+<ToastContainer />
       </HeaderNav>
       </Container>
     </HeaderElement>
