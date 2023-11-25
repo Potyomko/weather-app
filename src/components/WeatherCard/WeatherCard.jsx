@@ -18,7 +18,7 @@ export const Weather = ({cityName, getInfo}) => {
     console.log(storedCities);
     if (storedCities) {
       console.log(cityName);
-      // setCities(storedCities);
+      setCities(storedCities);
     }
   }, [cityName]);
 
@@ -90,8 +90,8 @@ const formatDate = timestamp => {
 
             <div className="second-floor">
               <h2>{formatTime(city.dt)}</h2>
-              <button className="btn" onClick={getInfo(city.name, 'hourly forecast')}>Hourly forecast</button>
-              <button className="btn" onClick={getInfo(city.name, 'weekly forecast')}>Weekly forecast</button>
+                <button className="btn" onClick={() => getInfo(city.name, 'hourly forecast')}>Hourly forecast</button>
+                <button className="btn" onClick={() => getInfo(city.name, 'weekly forecast')}>Weekly forecast</button>
             </div>
 
             <ul className="list">
@@ -109,7 +109,7 @@ const formatDate = timestamp => {
             <div className="last-floor">
               <img className="one" src={Reflesh} alt="" onClick={() => updateWeather(index)}/>
               <img className="two" src={Heart} alt="" />
-              <button className="btn-1" onClick={getInfo(city.name, 'see more')}>See more</button>
+              <button className="btn-1" onClick={()=>getInfo(city.name, 'see more')}>See more</button>
               <img className="three" src={Delete} alt="" onClick={() => removeCity(index)}/>
             </div>
           </div>
