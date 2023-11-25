@@ -35,26 +35,15 @@ const months = [
 ];
 
 const currentMonth = months[currentDate.getMonth()];
-  return (
-    
+  return (    
     <HeroSection>
-  {/* {console.log(cityName)} */}
-
-      <HeroH1>Weather dashboard</HeroH1>
-
- 
-    
-     
-    
+      <HeroH1>Weather dashboard</HeroH1>    
     <TextContainer>
     <HeroText>Create your personal list of favorite cities and always be aware of the weather.</HeroText>
       <HeroSpan></HeroSpan>
       <HeroData>{currentMonth} {year} <br></br> {currentDayOfWeek}, {day}th</HeroData>
     </TextContainer>
-      
-     
-
-      <Formik
+          <Formik
         initialValues={{
           cityName: '',
         }}

@@ -22,6 +22,7 @@ export const FirstModal = ({handleCloseModal, setUserLoggedIn, handleOpenSecondM
   };
   const handelSubmit = (e) => {
     e.preventDefault();
+    console.log('klick');
     const existingUserJSON = localStorage.getItem('user');
     // let existingUser = {};
 

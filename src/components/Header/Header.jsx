@@ -62,11 +62,6 @@ export const Header = () => {
     }
   }, []);
 
-  
-
-  
-  
-
   const handlelogOut = () => {
     setLogOut(true);
     setUserLoggedIn(false);
@@ -76,18 +71,13 @@ export const Header = () => {
     setLogOut(false);
   };
 
-  
-
   const handleLogInSubmit = (e) => {
     e.preventDefault()
     
     const existingUserJSON = localStorage.getItem('user');
     if (existingUserJSON) {
       const existingUser = JSON.parse(existingUserJSON);
-  
-
       if (existingUser.password === logInUserData.logInPassword && existingUser.userName === logInUserData.logInUserName) {
-        console.log(existingUser.password, existingUser.userName, logInUserData.logInPassword );
         toast.success('You are logged in', {
           position: "top-right",
           autoClose: 5000,
@@ -101,7 +91,6 @@ export const Header = () => {
         setUserLoggedIn(true);
         handleCloseSecondModal();
       } else {
-         console.log(existingUser.password && existingUser.userName === logInUserData.logInPassword && logInUserData.logInUserName);
         toast.error('Username or password entered incorrectly!', {
           position: "top-right",
           autoClose: 5000,
@@ -124,22 +113,7 @@ const getLogInUserData = ({logInUserName, logInPassword}) => {
   setLogInUserData({logInUserName, logInPassword});
 }
 
-    console.log('dgv');
-    const existingUserJSON = localStorage.getItem('user');
-    if (existingUserJSON) {
-      const existingUser = JSON.parse(existingUserJSON);
-      if (existingUser[logInUserName] && existingUser[logInUserName][2] === logInPassword) {
-        
-        setUserLoggedIn(true);
-        handleCloseSecondModal();
-      } else {
-alert('неправельні дані')
-      }
-    } 
-  };
   
-
-
   return (
     <HeaderElement>
       <Container>   
@@ -153,9 +127,7 @@ alert('неправельні дані')
         <SingUl>
         {userLoggedIn ? (
   <>
-    <p>{userData.userName}</p>
-    <p>{userName}</p>
-   
+    <p>{userData.userName}</p>   
   </>
 ) : (
   <>
@@ -198,47 +170,18 @@ alert('неправельні дані')
   )}
         <BsPersonCircle  size={50} style={{ marginLeft: '1300px', marginTop: '-40px' }} onClick={handleOpenThirdmodal}/>
         <ToastContainer
-position="top-right"
-autoClose={5000}
-hideProgressBar={false}
-newestOnTop={false}
-closeOnClick
-rtl={false}
-pauseOnFocusLoss
-draggable
-pauseOnHover
-theme="light"
-/>
-{/* Same as */}
-<ToastContainer />
-        </SingUl>
-        <Modal
-          isModalOpen={isModalOpen}
-          isSecondModalOpen={isSecondModalOpen}
-          isThirthModalOpen={isThirdModalOpen}
-          handleCloseModal={handleCloseModal}
-          handleCloseSecondModal={handleCloseSecondModal}
-          handleOpenSecondModal={handleOpenSecondModal}
-          handleOpenModal={handleOpenModal}
-          handleCloseThirdmodal={handleCloseThirdmodal}
-          handelSubmit={handelSubmit}
-          handelUserName={handelUserName}
-          handelEmail={handelEmail}
-          handlelogOut={handlelogOut}
-          handlelogOutFalse={handlelogOutFalse}
-          handelPassword={handelPassword}
-          handleOverlayClick={handleOverlayClick}
-          userName={userName}
-          email={email}
-          password={password}
-          logOut={logOut}
-          userLoggedIn={userLoggedIn}
-          handleLogInUserName={handleLogInUserName}
-          handleLogInPassword={handleLogInPassword}
-          handleLogInSubmit={handleLogInSubmit}
-          logInUserName={logInUserName}
-          logInPassword={logInPassword}
-        />
+              position="top-right"
+              autoClose={5000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+              theme="light"
+              />
+<ToastContainer />        
         <BsPersonCircle onClick={handleOpenThirdmodal} size={50} style={{ marginLeft: '1300px', marginTop: '-40px' }} />
 
       </HeaderNav>

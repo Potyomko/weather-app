@@ -9,8 +9,11 @@ export const WeekForecastLocationAPI = ({theCity}) => {
     const [cityName, setCityName] = useState('');
 
 useEffect(() => {
+    console.log('theCity: ', theCity)
+    
     if(theCity){
-        const myCity = JSON.parse(window.localStorage.getItem('cities')).find(oneCity => oneCity.name === theCity)
+        const myCity = JSON.parse(window.localStorage.getItem('cities')).find(oneCity => oneCity.name.toLowerCase() === theCity.toLowerCase())
+        console.log(JSON.parse(window.localStorage.getItem('cities')));
         setLat(myCity.coord.lat)
         setLon(myCity.coord.lon)
         if(lat && lon && theCity){
