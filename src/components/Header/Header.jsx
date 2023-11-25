@@ -119,7 +119,7 @@ const getLogInUserData = ({logInUserName, logInPassword}) => {
 }
   return (
     <HeaderElement>
-      <Container>
+   
 
 
    
@@ -198,7 +198,7 @@ theme="light"
 {/* Same as */}
 <ToastContainer />
       </HeaderNav>
-      </Container>
+    
     </HeaderElement>
   );
 };

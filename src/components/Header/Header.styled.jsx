@@ -17,10 +17,7 @@ height: 80px;
 `
 export const HeaderNavigation = styled.ul`
   display: flex;
-justify-content: center;
-align-items: center; 
-
-
+  margin-left: 400px;
   margin-top: -40px;
 
   & > li:not(:last-child) {
@@ -152,3 +149,4 @@ export const LinkModalSecond = styled.p`
 margin-left: 160px;
 margin-top: 80px;
 `
+
