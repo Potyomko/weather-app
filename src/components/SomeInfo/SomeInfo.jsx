@@ -3,8 +3,10 @@ import { MoreInfoList } from "../MoreInfo/MoreInfoList";
 import { MoreInfoChartComponent } from "../MoreInfo/MoreInfoChartComponent";
 import { WeatherForecastForWeek } from '../WeatherForecastForWeek/WeatherForecastForWeek'
 import { WeekForecastLocationAPI } from 'components/WeatherForecastForWeek/WeatherForecastLocationAPI';
+import {Weather} from '../WeatherCard/WeatherCard'
 
-export const SomeInfo = () => {
+
+export const SomeInfo = ({cityName}) => {
     const [city, setCity] = useState('New York');
     // London тут лише для того, щоб перевірити справність коду, надалі тут буде null
     const [seeMore, setSeeMore] = useState(false);
@@ -46,9 +48,10 @@ export const SomeInfo = () => {
         передаючи туди місто і назву кнопки
         які назви має носити (передавати) кнопка ти можеш зрозуміти ознайомившись із функцією
          */}
+         <Weather getInfo={getInfo} cityName={cityName}/>
         {seeMore && <MoreInfoList city={city} />}
         {hourlyForecast && <MoreInfoChartComponent city={city}/>}
-        {/* {weeklyForecast && <WeekForecastLocationAPI theCity={city}/>} */}
+        {weeklyForecast && <WeekForecastLocationAPI theCity={city}/>}
     </>
 
 }
