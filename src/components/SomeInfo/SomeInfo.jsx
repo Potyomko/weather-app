@@ -7,7 +7,7 @@ import {Weather} from '../WeatherCard/WeatherCard'
 
 
 export const SomeInfo = ({cityName}) => {
-    const [city, setCity] = useState('New York');
+    const [city, setCity] = useState('');
     // London тут лише для того, щоб перевірити справність коду, надалі тут буде null
     const [seeMore, setSeeMore] = useState(false);
     const [hourlyForecast, setHourlyForecast] = useState(false);

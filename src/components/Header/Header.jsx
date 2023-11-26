@@ -61,9 +61,6 @@ export const Header = () => {
       setUserLoggedIn(true);
     }
   }, []);
-
-  
-
   
   
 
@@ -72,12 +69,8 @@ export const Header = () => {
     setUserLoggedIn(false);
   };
 
-  const handlelogOutFalse = () => {
-    setLogOut(false);
-  };
-
   
-
+ 
   const handleLogInSubmit = (e) => {
     e.preventDefault()
     
@@ -116,33 +109,20 @@ export const Header = () => {
     }
   };
   
-const getUserDataState = ({userName, password,email})=>{  
+  
+  const getUserDataState = ({userName, password,email})=>{  
     setUserData({userName, password,email})
 }
 
 const getLogInUserData = ({logInUserName, logInPassword}) => {
   setLogInUserData({logInUserName, logInPassword});
 }
-
-    console.log('dgv');
-    const existingUserJSON = localStorage.getItem('user');
-    if (existingUserJSON) {
-      const existingUser = JSON.parse(existingUserJSON);
-      if (existingUser[logInUserName] && existingUser[logInUserName][2] === logInPassword) {
-        
-        setUserLoggedIn(true);
-        handleCloseSecondModal();
-      } else {
-alert('неправельні дані')
-      }
-    } 
-  };
-  
-
-
   return (
     <HeaderElement>
-      <Container>   
+   
+
+
+   
       <HeaderNav>
         <a href="/"><Headerlogo src={logo} alt="Logo" /></a>
         <HeaderNavigation>
@@ -154,7 +134,6 @@ alert('неправельні дані')
         {userLoggedIn ? (
   <>
     <p>{userData.userName}</p>
-    <p>{userName}</p>
    
   </>
 ) : (
@@ -163,9 +142,10 @@ alert('неправельні дані')
     <MainButton type="button" onClick={handleOpenModal}>Sign Up</MainButton>
   </>
 )}
+        </SingUl>
+        
 
-        </SingUl>       
-  {isModalOpen && (
+{isModalOpen && (
      <Modal>
     <FirstModal
       handleCloseModal={handleCloseModal}
@@ -196,7 +176,13 @@ alert('неправельні дані')
     />
     </Modal>
   )}
-        <BsPersonCircle  size={50} style={{ marginLeft: '1300px', marginTop: '-40px' }} onClick={handleOpenThirdmodal}/>
+
+
+
+
+
+
+        <BsPersonCircle onClick={handleOpenThirdmodal} size={50} style={{ marginLeft: '1300px', marginTop: '-40px' }} />
         <ToastContainer
 position="top-right"
 autoClose={5000}
@@ -211,38 +197,8 @@ theme="light"
 />
 {/* Same as */}
 <ToastContainer />
-        </SingUl>
-        <Modal
-          isModalOpen={isModalOpen}
-          isSecondModalOpen={isSecondModalOpen}
-          isThirthModalOpen={isThirdModalOpen}
-          handleCloseModal={handleCloseModal}
-          handleCloseSecondModal={handleCloseSecondModal}
-          handleOpenSecondModal={handleOpenSecondModal}
-          handleOpenModal={handleOpenModal}
-          handleCloseThirdmodal={handleCloseThirdmodal}
-          handelSubmit={handelSubmit}
-          handelUserName={handelUserName}
-          handelEmail={handelEmail}
-          handlelogOut={handlelogOut}
-          handlelogOutFalse={handlelogOutFalse}
-          handelPassword={handelPassword}
-          handleOverlayClick={handleOverlayClick}
-          userName={userName}
-          email={email}
-          password={password}
-          logOut={logOut}
-          userLoggedIn={userLoggedIn}
-          handleLogInUserName={handleLogInUserName}
-          handleLogInPassword={handleLogInPassword}
-          handleLogInSubmit={handleLogInSubmit}
-          logInUserName={logInUserName}
-          logInPassword={logInPassword}
-        />
-        <BsPersonCircle onClick={handleOpenThirdmodal} size={50} style={{ marginLeft: '1300px', marginTop: '-40px' }} />
-
       </HeaderNav>
-      </Container>
+    
     </HeaderElement>
   );
 };

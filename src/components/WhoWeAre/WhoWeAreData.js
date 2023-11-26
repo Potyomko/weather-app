@@ -17,7 +17,7 @@ const people = [
       name: "Тарнавський Олександр",
       work: "хедер, герой",
       photo: Olexander,
-      mail: "cmurtimur@gmail.com",
+      mail: "tarnav1514@gmail.com",
       git: "https://github.com/Olexander1234"
   },
 
