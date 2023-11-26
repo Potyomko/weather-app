@@ -11,7 +11,7 @@ export const SomeInfo = ({cityName}) => {
     // London тут лише для того, щоб перевірити справність коду, надалі тут буде null
     const [seeMore, setSeeMore] = useState(false);
     const [hourlyForecast, setHourlyForecast] = useState(false);
-    const [weeklyForecast, setWeeklyForecast] = useState(true);
+    const [weeklyForecast, setWeeklyForecast] = useState(false);
 
     const getInfo = (currentCity, options) => {
 
