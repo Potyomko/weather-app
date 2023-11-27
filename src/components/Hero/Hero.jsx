@@ -3,7 +3,7 @@ import { HeroSection,Field, HeroH1, HeroText, HeroData,  HeroSubmit, HeroSpan  ,
 import { BiSearch } from "react-icons/bi";
 
 import './styled.css'
-import { HeroAPI } from './HeroAPI';
+import { heroAPI } from './HeroAPI';
 import { useState } from 'react';
 import { WeekForecastLocationAPI } from 'components/WeatherForecastForWeek/WeatherForecastLocationAPI';
 
@@ -13,9 +13,10 @@ export const Hero = ({getCityName}) => {
   const [currentDay, setCurrentDay] = useState('');
 
   const handleSubmit = (values, { resetForm }) => {
-    
     console.log('Сабміт форми')
     setCityName(values.cityName);
+    console.log(values.cityName);
+    heroAPI(values.cityName);
     resetForm();
     getCityName(values.cityName)
   };
@@ -66,7 +67,7 @@ const currentMonth = months[currentDate.getMonth()];
           </Form>
         )}
       </Formik>
-      <HeroAPI city={cityName} />
+     
     </HeroSection>
   );
 }
