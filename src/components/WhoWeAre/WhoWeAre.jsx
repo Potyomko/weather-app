@@ -8,7 +8,7 @@ export const WhoWeAre = () => {
             <Container>
                 <Persons>
                         {people.map(people =>
-                            <Person>
+                            <Person key={people.name}>
                                 <Name>{people.name}</Name>
                                 <Img src={people.photo}></Img>
                                 <Work>Роботу, яку виконував на проекті : {people.work}</Work>
