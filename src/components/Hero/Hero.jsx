@@ -13,7 +13,7 @@ export const Hero = ({getCityName}) => {
   const [currentDay, setCurrentDay] = useState('');
 
   const handleSubmit = (values, { resetForm }) => {
-    
+    console.log('Сабміт форми')
     setCityName(values.cityName);
     console.log(values.cityName);
     heroAPI(values.cityName);

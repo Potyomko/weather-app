@@ -8,6 +8,7 @@ import {Footer} from './Footer/Footer';
 import { WeatherForecastForWeek } from "./WeatherForecastForWeek/WeatherForecastForWeek";
 import { Header } from "./Header/Header";
 import { WhoWeAre } from "./WhoWeAre/WhoWeAre";
+import { HeroAPI } from "./Hero/HeroAPI";
 
 export const App = () => {
   const [cityName, setCityName] = useState('')
@@ -18,10 +19,8 @@ export const App = () => {
     <div>
       <Header />
       <Hero getCityName={getCityName}/>
-      <Weather cityName={cityName}/>
-      {console.log(<WeatherForecastForWeek/>)}
+      {/* <HeroAPI cityName={cityName}/> */}
       <SomeInfo cityName={cityName}/>
-      {console.log(<WeatherForecastForWeek/>)}
       <News/>
       <WhoWeAre/>
       <Footer/>

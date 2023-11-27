@@ -23,7 +23,7 @@ export const Weather = ({cityName, getInfo}) => {
   useEffect(() => {
 
     const storedCities = JSON.parse(localStorage.getItem('cities'));
-    console.log(storedCities);
+    console.log('storedCities: ', storedCities);
     if (storedCities) {
       console.log(cityName);
       setCities(storedCities);
