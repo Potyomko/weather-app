@@ -19,13 +19,13 @@ export const News = () => {
     // }
 
     
-    // useEffect(() => {
-    //     setInterval(() => {
-    //         fetch(`https://newsapi.org/v2/everything?pageSize=4&q=tesla&counrty=us&sortBy=publishedAt&apiKey=f58eaf87dd6248efaa19cf893b7b86fa`) 
-    //         .then(res => res.json())
-    //         .then(result => setNews(result.articles))
-    //     }, 30000)
-    // }, [] )
+    useEffect(() => {
+        setInterval(() => {
+            fetch(`https://newsapi.org/v2/everything?pageSize=4&q=apple&sortBy=popularity&counrty=us&language=en&sortBy=publishedAt&apiKey=f58eaf87dd6248efaa19cf893b7b86fa`) 
+            .then(res => res.json())
+            .then(result => setNews(result.articles))
+        }, 30000)
+    }, [] )
     
     
     
