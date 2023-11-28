@@ -19,3 +19,7 @@ export const NewsImage = styled.img`
 
     margin-bottom: 20px;
 `;
+
+export const NewsDesc = styled.p`
+    text-overflow: ellipsis;
+`
