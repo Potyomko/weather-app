@@ -3,6 +3,7 @@ import { P } from "./WeatherForecastForWeek.styled";
 import { Ul } from "./WeatherForecastForWeek.styled";
 import { Heading, WeeklyContainer, Temperature } from "./WeatherForecastForWeek.styled";
 import { formatDate } from "./WeatherForecastLocationAPI";
+import { Container } from "GlobalStyle";
 
 
 export const WeatherForecastForWeek = ({theWeather}) => {
@@ -25,6 +26,7 @@ return(
         {console.log(theWeather.timezone)}
         {console.log(theWeather.daily[0])} */}
         {/* {console.log(firstDayData.temp.day)}  http://openweathermap.org/img/w/" + iconcode + ".png*/}
+<Container>
 <WeeklyContainer>
             <Heading>8-day forecast</Heading>
         <Ul>
@@ -89,6 +91,7 @@ return(
             </Li>
             </Ul>
             </WeeklyContainer>
+        </Container>
          </>
     );
     
