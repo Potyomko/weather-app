@@ -20,7 +20,6 @@ export const App = () => {
     <div>
       <Header />
       <Hero getCityName={getCityName}/>
-      {/* <HeroAPI cityName={cityName}/> */}
       <SomeInfo cityName={cityName}/>
       <News/>
       <Gallery/>
