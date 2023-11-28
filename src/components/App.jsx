@@ -9,6 +9,7 @@ import { WeatherForecastForWeek } from "./WeatherForecastForWeek/WeatherForecast
 import { Header } from "./Header/Header";
 import { WhoWeAre } from "./WhoWeAre/WhoWeAre";
 import { HeroAPI } from "./Hero/HeroAPI";
+import Gallery from "./Gallery/Gallery";
 
 export const App = () => {
   const [cityName, setCityName] = useState('')
@@ -22,6 +23,7 @@ export const App = () => {
       {/* <HeroAPI cityName={cityName}/> */}
       <SomeInfo cityName={cityName}/>
       <News/>
+      <Gallery/>
       <WhoWeAre/>
       <Footer/>
       <GlobalStyle/>
