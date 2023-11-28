@@ -1,8 +1,9 @@
 import { Li } from "./WeatherForecastForWeek.styled";
 import { P } from "./WeatherForecastForWeek.styled";
 import { Ul } from "./WeatherForecastForWeek.styled";
-import { Heading } from "./WeatherForecastForWeek.styled";
+import { Heading, WeeklyContainer, Temperature } from "./WeatherForecastForWeek.styled";
 import { formatDate } from "./WeatherForecastLocationAPI";
+
 
 export const WeatherForecastForWeek = ({theWeather}) => {
     
@@ -15,6 +16,7 @@ export const WeatherForecastForWeek = ({theWeather}) => {
     const seventhDayData = theWeather.daily[6]
     const eighthDayData = theWeather.daily[7]
 
+
 return(
         <>
         {console.log(theWeather)}
@@ -22,51 +24,71 @@ return(
         {/* <p>{theWeather.lat}</p>
         {console.log(theWeather.timezone)}
         {console.log(theWeather.daily[0])} */}
-        {/* {console.log(firstDayData.temp.day)}  */}
-        
-        <Ul>
+        {/* {console.log(firstDayData.temp.day)}  http://openweathermap.org/img/w/" + iconcode + ".png*/}
+<WeeklyContainer>
             <Heading>8-day forecast</Heading>
+        <Ul>
+
              <Li>
                 <P>{formatDate(firstDayData.dt)}</P>
-                <P>Temperature: {(firstDayData.temp.day - 273.15).toFixed(2)} / {(firstDayData.temp.night - 273.15).toFixed(2)} °C </P>
-                <P>Weather: {firstDayData.weather.map(oneWeather => {return oneWeather.description})}</P>
+                <Temperature>
+                    <P>Temp: {(firstDayData.temp.day - 273.15).toFixed(2)} / {(firstDayData.temp.night - 273.15).toFixed(2)} °C</P> </Temperature>
+                <P>{firstDayData.weather.map(oneWeather => {return oneWeather.description})}</P>
             </Li>
              <Li>
-                <P>{formatDate(secondDayData.dt)}</P>
-                <P>Temperature: {(secondDayData.temp.day - 273.15).toFixed(2)} / {(secondDayData.temp.night - 273.15).toFixed(2)} °C </P>
-                <P>Weather: {secondDayData.weather.map(oneWeather => {return oneWeather.description})}</P>
+                    <P>{formatDate(secondDayData.dt)}</P>
+                    <Temperature> <P>Temp: {(secondDayData.temp.day - 273.15).toFixed(2)} / {(secondDayData.temp.night - 273.15).toFixed(2)} °C </P></Temperature>
+               
+                <P>{secondDayData.weather.map(oneWeather => {return oneWeather.description})}</P>
             </Li>
             <Li>
-                <P>{formatDate(thirdDayData.dt)}</P>
-                <P>Temperature: {(thirdDayData.temp.day - 273.15).toFixed(2)} / {(thirdDayData.temp.night - 273.15).toFixed(2)} °C </P>
-                <P>Weather: {thirdDayData.weather.map(oneWeather => {return oneWeather.description})}</P>
+                    <P>{formatDate(thirdDayData.dt)}</P>
+                    <Temperature>                <P>Temp: {(thirdDayData.temp.day - 273.15).toFixed(2)} / {(thirdDayData.temp.night - 273.15).toFixed(2)} °C </P></Temperature>
+
+                <P>{thirdDayData.weather.map(oneWeather => {return oneWeather.description})}</P>
             </Li>
             <Li>
-                <P>{formatDate(fourthDayData.dt)}</P>
-                <P>Temperature: {(fourthDayData.temp.day - 273.15).toFixed(2)} / {(fourthDayData.temp.night - 273.15).toFixed(2)} °C </P>
-                <P>Weather: {fourthDayData.weather.map(oneWeather => {return oneWeather.description})}</P>
+                    <P>{formatDate(fourthDayData.dt)}</P>
+                    <Temperature>
+                                        <P>Temp: {(fourthDayData.temp.day - 273.15).toFixed(2)} / {(fourthDayData.temp.night - 273.15).toFixed(2)} °C </P>
+                    </Temperature>
+
+                <P>{fourthDayData.weather.map(oneWeather => {return oneWeather.description})}</P>
             </Li>
             <Li>
-                <P>{formatDate(fifthDayData.dt)}</P>
-                <P>Temperature: {(fifthDayData.temp.day - 273.15).toFixed(2)} / {(fifthDayData.temp.night - 273.15).toFixed(2)} °C </P>
-                <P>Weather: {fifthDayData.weather.map(oneWeather => {return oneWeather.description})}</P>
+                    <P>{formatDate(fifthDayData.dt)}</P>
+                    <Temperature>
+                         <P>Temp: {(fifthDayData.temp.day - 273.15).toFixed(2)} / {(fifthDayData.temp.night - 273.15).toFixed(2)} °C </P>
+                       </Temperature>
+               
+                <P>{fifthDayData.weather.map(oneWeather => {return oneWeather.description})}</P>
             </Li>
             <Li>
-                <P>{formatDate(sixthDayData.dt)}</P>
-                <P>Temperature: {(sixthDayData.temp.day - 273.15).toFixed(2)} / {(sixthDayData.temp.night - 273.15).toFixed(2)} °C </P>
-                <P>Weather: {sixthDayData.weather.map(oneWeather => {return oneWeather.description})}</P>
+                    <P>{formatDate(sixthDayData.dt)}</P>
+                    <Temperature>
+                                        <P>Temp: {(sixthDayData.temp.day - 273.15).toFixed(2)} / {(sixthDayData.temp.night - 273.15).toFixed(2)} °C </P>
+                    </Temperature>
+
+                <P>{sixthDayData.weather.map(oneWeather => {return oneWeather.description})}</P>
             </Li>
             <Li>
-                <P>{formatDate(seventhDayData.dt)}</P>
-                <P>Temperature: {(seventhDayData.temp.day - 273.15).toFixed(2)} / {(seventhDayData.temp.night - 273.15).toFixed(2)} °C </P>
-                <P>Weather: {seventhDayData.weather.map(oneWeather => {return oneWeather.description})}</P>
+                    <P>{formatDate(seventhDayData.dt)}</P>
+                    <Temperature>
+                                        <P>Temp: {(seventhDayData.temp.day - 273.15).toFixed(2)} / {(seventhDayData.temp.night - 273.15).toFixed(2)} °C </P>
+                    </Temperature>
+
+                <P>{seventhDayData.weather.map(oneWeather => {return oneWeather.description})}</P>
             </Li>
             <Li>
-                <P>{formatDate(eighthDayData.dt)}</P>
-                <P>Temperature: {(eighthDayData.temp.day - 273.15).toFixed(2)} / {(eighthDayData.temp.night - 273.15).toFixed(2)} °C </P>
-                <P>Weather: {eighthDayData.weather.map(oneWeather => {return oneWeather.description})}</P>
+                    <P>{formatDate(eighthDayData.dt)}</P>
+                    <Temperature>
+                                        <P>Temp: {(eighthDayData.temp.day - 273.15).toFixed(2)} / {(eighthDayData.temp.night - 273.15).toFixed(2)} °C </P>
+                    </Temperature>
+
+                <P>{eighthDayData.weather.map(oneWeather => {return oneWeather.description})}</P>
             </Li>
-       </Ul>
+            </Ul>
+            </WeeklyContainer>
          </>
     );
     

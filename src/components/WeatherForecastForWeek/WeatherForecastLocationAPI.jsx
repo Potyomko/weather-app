@@ -4,7 +4,7 @@ import { WeatherForecastForWeek } from "./WeatherForecastForWeek";
 
 export const formatDate = timestamp => {
     const date = new Date(timestamp * 1000);
-    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    const options = { weekday: 'short', month: 'short', day: 'numeric' };
     return date.toLocaleDateString('en-US', options);
 };
 
